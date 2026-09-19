@@ -1,10 +1,10 @@
 import '@mantine/core/styles.css';
-import { ColorSchemeScript, MantineProvider, createTheme } from '@mantine/core';
+import { MantineProvider, createTheme } from '@mantine/core';
 import { Vazirmatn } from 'next/font/google';
 import Header from '@/shared/components/Header';
 import Footer from '@/shared/components/Footer';
 
-// تعریف فونت فارسی استاندارد Next.js
+// فونت وزیرمتن
 const vazirmatn = Vazirmatn({
   subsets: ['arabic', 'latin'],
   display: 'swap',
@@ -32,10 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fa" dir="rtl" className={vazirmatn.variable}>
-      <head>
-        <ColorSchemeScript defaultColorScheme="light" />
-      </head>
+    <html
+      lang="fa"
+      dir="rtl"
+      className={vazirmatn.variable}
+      data-mantine-color-scheme="light"
+      suppressHydrationWarning
+    >
+      <head />
       <body
         className={vazirmatn.className}
         style={{
@@ -47,7 +51,8 @@ export default function RootLayout({
           MozOsxFontSmoothing: 'grayscale',
         }}
       >
-        <MantineProvider theme={theme} defaultColorScheme="light">
+        {/* با قرار دادن forceColorScheme="light" تم بدون اسکریپت‌های اضافی روی لایت قفل می‌شود */}
+        <MantineProvider theme={theme} forceColorScheme="light">
           <div
             style={{
               display: 'flex',

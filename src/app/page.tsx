@@ -26,7 +26,7 @@ import {
 } from '@tabler/icons-react';
 import { WORKSHOPS } from '@/modules/workshop/data/workshops';
 import WorkshopScrollShowcase from '@/shared/components/WorkshopScrollShowcase';
-import Hero from '@/shared/components/HeroSection';
+import WorkshopTimeline from '@/shared/components/WorkshopTimeline';
 import HeroSection from '@/shared/components/HeroSection';
 
 export default function HomePage() {
@@ -65,7 +65,7 @@ export default function HomePage() {
                 <Card.Section pos="relative">
                   <Image
                     src={workshop.heroImage}
-                    height={190}
+                    height={250}
                     alt={workshop.title}
                     fallbackSrc="https://placehold.co/600x400/e2e8f0/1e293b?text=CubeSat+Subsystem"
                   />
@@ -134,6 +134,11 @@ export default function HomePage() {
       {/* 3. DYNAMIC SCROLL SHOWCASE (ابتکار اسکرول تعاملی) */}
       <Box id="scroll-showcase">
         <WorkshopScrollShowcase />
+      </Box>
+
+      {/* 3. DYNAMIC SCROLL SHOWCASE (ابتکار اسکرول تعاملی) */}
+      <Box>
+        <WorkshopTimeline />
       </Box>
     </Box>
   );
