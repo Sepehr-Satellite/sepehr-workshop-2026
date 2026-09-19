@@ -1,7 +1,8 @@
 import '@mantine/core/styles.css';
+import './globals.css';
 import { MantineProvider, createTheme } from '@mantine/core';
 import { Vazirmatn } from 'next/font/google';
-import Header from '@/shared/components/Header';
+import Header from '@/shared/components/header';
 import Footer from '@/shared/components/Footer';
 
 // فونت وزیرمتن

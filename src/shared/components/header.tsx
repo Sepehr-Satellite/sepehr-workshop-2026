@@ -40,36 +40,38 @@ export default function Header() {
       <Container size="xl" h={72}>
         <Group justify="space-between" h="100%">
           {/* Brand / Logo */}
-          <Group gap="xs" component={Link} href="/" style={{ textDecoration: 'none' }}>
-            <Box
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: '10px',
-                background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff',
-                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
-              }}
-            >
-              <IconRocket size={22} />
-            </Box>
-            <Stack gap={0}>
-              <Group gap={6} align="center">
-                <Text fw={800} size="md" c="slate.9">
-                  گروه فضایی سپهر
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <Group gap="xs">
+              <Box
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: '10px',
+                  background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                }}
+              >
+                <IconRocket size={22} />
+              </Box>
+              <Stack gap={0}>
+                <Group gap={6} align="center">
+                  <Text fw={800} size="md" c="slate.9">
+                    گروه فضایی سپهر
+                  </Text>
+                  <Badge size="xs" variant="light" color="blue" radius="sm">
+                    دانشگاه شریف
+                  </Badge>
+                </Group>
+                <Text size="xs" c="dimmed" fw={500}>
+                  رویداد هفته جهانی فضا ۲۰۲۴
                 </Text>
-                <Badge size="xs" variant="light" color="blue" radius="sm">
-                  دانشگاه شریف
-                </Badge>
-              </Group>
-              <Text size="xs" c="dimmed" fw={500}>
-                رویداد هفته جهانی فضا ۲۰۲۴
-              </Text>
-            </Stack>
-          </Group>
+              </Stack>
+            </Group>
+          </Link>
 
           {/* Navigation Links */}
           <Group gap="xl" visibleFrom="md">

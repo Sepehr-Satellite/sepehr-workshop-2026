@@ -1,1 +1,28 @@
-@import '@mantine/core/styles.css';
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 3px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.55);
+  border-radius: 999px;
+}
+
+.workshop-scroll-showcase {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.workshop-scroll-showcase::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}

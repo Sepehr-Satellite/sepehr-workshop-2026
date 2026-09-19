@@ -9,25 +9,21 @@ import {
   Text,
   Button,
   Badge,
-  Grid,
   SimpleGrid,
   Card,
   Group,
   Stack,
   Image,
-  rem,
 } from '@mantine/core';
 import {
-  IconArrowLeft,
   IconChevronLeft,
   IconClock,
-  IconBookmark,
-  IconVideo,
 } from '@tabler/icons-react';
 import { WORKSHOPS } from '@/modules/workshop/data/workshops';
 import WorkshopScrollShowcase from '@/shared/components/WorkshopScrollShowcase';
 import WorkshopTimeline from '@/shared/components/WorkshopTimeline';
 import HeroSection from '@/shared/components/HeroSection';
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (
@@ -51,10 +47,12 @@ export default function HomePage() {
           {WORKSHOPS.map((workshop) => (
             <Card
               key={workshop.slug}
+              data-workshop-card={workshop.slug}
               withBorder
               radius="lg"
               padding="lg"
               shadow="sm"
+              className={styles.workshopCard}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -62,11 +60,13 @@ export default function HomePage() {
               }}
             >
               <div>
-                <Card.Section pos="relative">
+                <Card.Section pos="relative" className={styles.workshopImageFrame}>
                   <Image
                     src={workshop.heroImage}
                     height={250}
+                    fit="contain"
                     alt={workshop.title}
+                    className={styles.workshopImage}
                     fallbackSrc="https://placehold.co/600x400/e2e8f0/1e293b?text=CubeSat+Subsystem"
                   />
                   <Badge
