@@ -35,7 +35,7 @@ export default function Footer() {
       }}
     >
       <Container size="xl">
-        <Grid gutter={{ base: 40, md: 50 }}>
+        <Grid gap={{ base: 40, md: 50 }}>
           {/* Col 1: About */}
           <Grid.Col span={{ base: 12, md: 5 }}>
             <Stack gap="md">

@@ -2,9 +2,9 @@
 'use client';
 
 import React from 'react';
-import { Container, Title, Text, Box, Badge, Group } from '@mantine/core';
-import { IconMapPin, IconClock } from '@tabler/icons-react';
-import { WORKSHOPS } from '@/modules/workshop/data/workshops';
+import { Container, Title, Text, Badge, Group } from '@mantine/core';
+import { IconMapPin } from '@tabler/icons-react';
+import { WORKSHOPS, type Workshop } from '@/modules/workshop/data/workshops';
 
 export default function WorkshopTimeline() {
   return (
@@ -82,7 +82,7 @@ const DateBadge = ({ date, time }: { date: string, time: string }) => (
   </div>
 );
 
-const WorkshopContent = ({ w }: { w: any }) => (
+const WorkshopContent = ({ w }: { w: Workshop }) => (
   <div>
     <Title order={4} style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>{w.title}</Title>
     <Text size="xs" c="gray.6" mb="xs">{w.subtitle}</Text>

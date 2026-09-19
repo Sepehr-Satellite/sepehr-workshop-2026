@@ -797,7 +797,10 @@ export const WORKSHOPS: Workshop[] = [
     location: "سایت دانشکده کامپیوتر",
     speaker: "مهندس ع. علوی",
     status: "filling",
-    statusLabel: "ظرفیت محدود"
+    statusLabel: "ظرفیت محدود",
+    prerequisites: [],
+    requirements: [],
+    syllabus: []
   },
   {
     id: "W-09",
