@@ -83,7 +83,7 @@ export default function WorkshopScrollShowcase() {
                 backgroundImage: `url(${workshop.bgImage || workshop.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                filter: 'brightness(0.35) contrast(1.15)',
+                filter: 'brightness(0.50) contrast(1.15)',
               }}
             />
           );
