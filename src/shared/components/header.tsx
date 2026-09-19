@@ -95,18 +95,7 @@ export default function Header() {
 
           {/* Call to Action & Mobile Hamburger */}
           <Group gap="sm">
-            <Button
-              component={Link}
-              href="/#workshops"
-              size="sm"
-              radius="md"
-              variant="gradient"
-              gradient={{ from: '#1e3a8a', to: '#2563eb', deg: 105 }}
-              leftSection={<IconSparkles size={16} />}
-              visibleFrom="xs"
-            >
-              مشاهده کارگاه‌ها
-            </Button>
+            
             <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
           </Group>
         </Group>
