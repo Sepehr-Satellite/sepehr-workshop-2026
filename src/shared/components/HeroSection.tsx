@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { getAssetPath } from '@/utils/prefix';
 import Image from 'next/image';
 import {
   Container,
@@ -158,7 +159,7 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src="/logo.svg"
+                src={getAssetPath("/logo.svg")}
                 alt="مدل ماهواره کیوب‌ست"
                 fill
                 priority
