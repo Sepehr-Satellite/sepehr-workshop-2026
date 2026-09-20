@@ -1,4 +1,5 @@
 // src/data/workshops.ts
+import { getAssetPath } from '@/utils/prefix';
 
 export interface SyllabusContent {
   subtitle: string;
@@ -46,8 +47,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "معماری سخت‌افزار و نرم‌افزار OBC ماهواره، پروتکل‌های صنعتی I2C/SPI/CAN، پیاده‌سازی FreeRTOS و مکانیزم‌های تحمل خطای فضایی.",
     level: "مقدماتی",
     hours: "4",
-    bgImage: "/images/workshops/cdh-arduino-bg.png",
-    heroImage: "/images/workshops/cdh-arduino-hero.png",
+    bgImage: getAssetPath("/images/workshops/cdh-arduino-bg.png"),
+    heroImage: getAssetPath("/images/workshops/cdh-arduino-hero.png"),
     category: "سیستم‌های نهفته",
     color: "#27969C",
     highlights: ["برنامه‌نویسی FreeRTOS", "مدیریت پایپ‌لاین داده‌های سنسوری", "سیستم بازیابی خطا"],
@@ -116,8 +117,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "معماری سخت‌افزار و نرم‌افزار OBC ماهواره، پروتکل‌های صنعتی I2C/SPI/CAN، پیاده‌سازی مکانیزم‌های کنترلی و ارتباطی در مقیاس فضایی.",
     level: "پیشرفته",
     hours: "۸ ساعت",
-    bgImage: "/images/workshops/cdh-stm32-bg2.png",
-    heroImage: "/images/workshops/cdh-stm32-hero.jpg",
+    bgImage: getAssetPath("/images/workshops/cdh-stm32-bg2.png"),
+    heroImage: getAssetPath("/images/workshops/cdh-stm32-hero.jpg"),
     category: "سیستم‌های نهفته",
     color: "#5C8BA1",
     highlights: ["برنامه‌نویسی پیشرفته STM32 با توابع HAL", "راه‌اندازی پروتکل CAN و سنسورها", "مفاهیم ADCS و کار با DMA"],
@@ -232,8 +233,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "آموزش گام‌به‌گام طراحی بردهای الکترونیکی با استاندارد صنعتی در نرم‌افزار Altium Designer؛ از ساخت کتابخانه و فوت‌پرینت بر اساس دیتاشیت قطعات تا مسیریابی حرفه‌ای، رعایت قوانین طراحی (Design Rules) و استخراج خروجی‌های ساخت صنعتی (Gerber).",
     level: "مقدماتی تا پیشرفته",
     hours: "۸ ساعت",
-    bgImage: "/images/workshops/avionics-altium-bg.png",
-    heroImage: "/images/workshops/avionics-altium-hero.png",
+    bgImage: getAssetPath("/images/workshops/avionics-altium-bg.png"),
+    heroImage: getAssetPath("/images/workshops/avionics-altium-hero.png"),
     category: "الکترونیک و اویونیک",
     color: "#d3af27",
     highlights: [
@@ -361,8 +362,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "آموزش جامع زیرسیستم تولید و مدیریت توان در ماهواره‌های کیوب‌ست (EPS)؛ شامل بررسی سلول‌های خورشیدی، منحنی‌های مشخصه، تکنیک‌های MPPT، مدیریت باتری (BMS)، سیستم‌های پایش حرارتی و مبدل‌های توان برای تأمین سطوح ولتاژ مختلف.",
     level: "پیشرفته",
     hours: "۸ ساعت",
-    bgImage: "/images/workshops/avionics-power-bg.png",
-    heroImage: "/images/workshops/avionics-power-hero.png",
+    bgImage: getAssetPath("/images/workshops/avionics-power-bg.png"),
+    heroImage: getAssetPath("/images/workshops/avionics-power-hero.png"),
     category: "الکترونیک و اویونیک",
     color: "#8f8fc8",
     highlights: [
@@ -488,8 +489,8 @@ export const WORKSHOPS: Workshop[] = [
       "آموزش مبانی ساخت افزایشی و طراحی قطعات سه‌بعدی؛ از مقایسه روش‌های ساخت کلاسیک و مدرن تا مدل‌سازی ساده در SolidWorks، آماده‌سازی فایل چاپ با OrcaSlicer و چاپ عملی قطعات با پرینترهای سه‌بعدی FDM و SLA.",
     level: "مقدماتی",
     hours: "۶ ساعت",
-    bgImage: "/images/workshops/additive-manufacturing-bg.jpg",
-    heroImage: "/images/workshops/additive-manufacturing-hero.png",
+    bgImage: getAssetPath("/images/workshops/additive-manufacturing-bg.jpg"),
+    heroImage: getAssetPath("/images/workshops/additive-manufacturing-hero.png"),
     category: "طراحی و ساخت",
     color: "#d3af27",
     highlights: [
@@ -595,8 +596,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "دوره جامع پیاده‌سازی زنجیره کامل ADCS؛ از درک دستگاه‌های مختصات، کالیبراسیون سنسورهای IMU و مغناطیس‌سنج تا پیاده‌سازی کنترلر حلقه بسته با چرخ عکس‌العملی و طراحی ماشین حالت (State Machine) برای مد‌های عملیاتی فضایی.",
     level: "پیشرفته",
     hours: "۱۰ ساعت",
-    bgImage: "/images/workshops/adcs-bg.png",
-    heroImage: "/images/workshops/adcs-hero.png",
+    bgImage: getAssetPath("/images/workshops/adcs-bg.png"),
+    heroImage: getAssetPath("/images/workshops/adcs-hero.png"),
     category: "کنترل و دینامیک",
     color: "#a855f7",
     highlights: [
@@ -701,8 +702,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "آموزش جامع پیاده‌سازی پی‌لود تصویربرداری فضایی با ماژول ESP32-CAM، تنظیم بهینه سنسور OV2640 در شرایط نوری مدار، تبدیل داده‌های خام به فرمت‌های استاندارد فضایی (TIFF) و پردازش طیفی و استخراج شاخص‌های محیطی (مانند NDVI و VARI) در نرم‌افزار MATLAB.",
     level: "متوسط تا پیشرفته",
     hours: "۸ ساعت",
-    bgImage: "/images/workshops/remote-sensing-bg.png",
-    heroImage: "/images/workshops/remote-sensing-hero.png",
+    bgImage: getAssetPath("/images/workshops/remote-sensing-bg.png"),
+    heroImage: getAssetPath("/images/workshops/remote-sensing-hero.png"),
     category: "محموله فضایی",
     color: "#55f7d7",
     highlights: [
@@ -787,8 +788,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "مدل‌سازی دینامیک مداری و وضعیت ۳ محوره ماهواره، الگوریتم B-Dot برای میراسازی زاویه‌ای و درایو مغناطیس‌سنج‌ها و چرخ‌های عکس‌العملی.",
     level: "پیشرفته",
     hours: "8 ساعت",
-    bgImage: "/images/workshops/ai-assist-bg.png",
-    heroImage: "/images/workshops/ai-assist-hero.png",
+    bgImage: getAssetPath("/images/workshops/ai-assist-bg.png"),
+    heroImage: getAssetPath("/images/workshops/ai-assist-hero.png"),
     category: "محموله فضایی",
     color: "#BE472C",
     highlights: ["هندسه و اپتیک سنجش از دور", "پیاده‌سازی محموله با ESP32-CAM", "شبیه‌سازی ماموریت رصدی", " استانداردسازی داده‌های فضایی"," تحلیل‌های چندطیفی و شاخص‌های محیطی","پردازش داده‌های ماهواره‌های واقعی"],
@@ -810,8 +811,8 @@ export const WORKSHOPS: Workshop[] = [
     description: "آموزش جامع زنجیره کامل لینک مخابراتی تله‌متری و تله‌کامند فضایی؛ از محاسبه Link Budget و تحلیل سناریوی ماهواره با Satellite Communications Toolbox تا مدولاسیون BPSK، همزمان‌سازی‌های سه گانه (Timing, Carrier, Frame) و اجرای عملی لینک فرستنده/گیرنده با سخت‌افزار ADALM-Pluto SDR.",
     level: "تخصصی عملی",
     hours: "۱۰ ساعت",
-    bgImage: "/images/workshops/comm-bg.jpg",
-    heroImage: "/images/workshops/comm-hero.png",
+    bgImage: getAssetPath("/images/workshops/comm-bg.jpg"),
+    heroImage: getAssetPath("/images/workshops/comm-hero.png"),
     category: "مخابرات و پردازش سیگنال",
     color: "#CAC09E",
     highlights: [
