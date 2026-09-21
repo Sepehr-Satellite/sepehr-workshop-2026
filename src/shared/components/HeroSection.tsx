@@ -199,7 +199,7 @@ export default function HeroSection() {
             }}
           >
             <Group
-              gap={{ base: 'lg', sm: '2.5rem' }}
+              gap="lg"
               align="center"
               justify="center"
               wrap="nowrap"
