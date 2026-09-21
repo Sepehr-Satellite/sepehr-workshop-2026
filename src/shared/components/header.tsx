@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Container,
   Group,
@@ -13,7 +14,7 @@ import {
   Box,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconRocket, IconSparkles } from '@tabler/icons-react';
+import { getAssetPath } from '@/utils/prefix';
 
 const navLinks = [
   { link: '/', label: 'صفحه اصلی' },
@@ -38,43 +39,45 @@ export default function Header() {
       }}
     >
       <Container size="xl" h={72}>
-        <Group justify="space-between" h="100%">
-          {/* Brand / Logo */}
-          <Link href="/" style={{ textDecoration: 'none' }}>
-            <Group gap="xs">
-              <Box
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
-                }}
-              >
-                <IconRocket size={22} />
-              </Box>
-              <Stack gap={0}>
-                <Group gap={6} align="center">
-                  <Text fw={800} size="md" c="slate.9">
-                    گروه فضایی سپهر
-                  </Text>
-                  <Badge size="xs" variant="light" color="blue" radius="sm">
-                    دانشگاه شریف
-                  </Badge>
-                </Group>
-                <Text size="xs" c="dimmed" fw={500}>
-                  رویداد هفته جهانی فضا ۲۰۲۴
-                </Text>
-              </Stack>
-            </Group>
-          </Link>
+        <Group justify="space-between" align="center" h="100%" wrap="nowrap">
+          {/* Brand / Logo (Left side) */}
+          <Box style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+            <Link href="/" style={{ textDecoration: 'none' }}>
+              <Group gap="xs" wrap="nowrap">
+                <Box
+                  style={{
+                    position: 'relative',
+                    width: 72,
+                    height: 72,
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Image
+                    src={getAssetPath('/logo.svg')}
+                    alt="لوگوی گروه فضایی سپهر"
+                    width={72}
+                    height={72}
+                    style={{ objectFit: 'contain' }}
+                    priority
+                  />
+                </Box>
+                <Stack gap={0}>
+                  <Group gap={6} align="center" wrap="nowrap">
+                    <Text fw={800} size="md" c="slate.9">
+                      گروه فضایی سپهر
+                    </Text>
+                  </Group>
+                </Stack>
+              </Group>
+            </Link>
+          </Box>
 
-          {/* Navigation Links */}
-          <Group gap="xl" visibleFrom="md">
+          {/* Centered Navigation Links (Desktop) */}
+          <Group gap="xl" visibleFrom="md" justify="center" style={{ flex: 2 }}>
             {navLinks.map((item) => (
               <Text
                 key={item.link}
@@ -86,6 +89,16 @@ export default function Header() {
                 style={{
                   textDecoration: 'none',
                   transition: 'color 0.2s ease',
+                  padding: '6px 10px',
+                  borderRadius: '6px',
+                }}
+                styles={{
+                  root: {
+                    '&:hover': {
+                      color: 'var(--mantine-color-blue-6)',
+                      backgroundColor: '#f1f5f9',
+                    },
+                  },
                 }}
               >
                 {item.label}
@@ -93,11 +106,17 @@ export default function Header() {
             ))}
           </Group>
 
-          {/* Call to Action & Mobile Hamburger */}
-          <Group gap="sm">
-            
+          {/* Right Action / Mobile Burger Placeholder */}
+          <Box
+            style={{
+              flex: 1,
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}
+          >
             <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
-          </Group>
+          </Box>
         </Group>
       </Container>
 
@@ -109,7 +128,13 @@ export default function Header() {
         position="right"
         title={
           <Group gap="xs">
-            <IconRocket size={20} color="#2563eb" />
+            <Image
+              src={getAssetPath('/logo.svg')}
+              alt="Logo"
+              width={26}
+              height={26}
+              style={{ objectFit: 'contain' }}
+            />
             <Text fw={800} size="sm" c="slate.9">
               گروه فضایی سپهر شریف
             </Text>

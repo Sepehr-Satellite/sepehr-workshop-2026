@@ -3,6 +3,10 @@ html {
   scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
 }
 
+[id] {
+  scroll-margin-top: 70px; /* ارتفاع هدر شما */
+}
+
 html::-webkit-scrollbar {
   width: 3px;
 }

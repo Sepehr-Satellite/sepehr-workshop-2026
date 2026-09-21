@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { getAssetPath } from '@/utils/prefix';
 import {
   Container,
   Grid,
@@ -16,11 +18,16 @@ import {
   IconBrandTelegram,
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconRocket,
   IconMapPin,
   IconMail,
   IconPhone,
 } from '@tabler/icons-react';
+
+const socialLinks = [
+  { icon: IconBrandTelegram, href: 'https://t.me', label: 'تلگرام' },
+  { icon: IconBrandInstagram, href: 'https://instagram.com', label: 'اینستاگرام' },
+  { icon: IconBrandLinkedin, href: 'https://linkedin.com', label: 'لینکدین' },
+];
 
 export default function Footer() {
   return (
@@ -39,20 +46,30 @@ export default function Footer() {
           {/* Col 1: About */}
           <Grid.Col span={{ base: 12, md: 5 }}>
             <Stack gap="md">
-              <Group gap="xs">
+              <Group gap="sm">
+                {/* لوگوی اصلی به‌جای آیکون موشک */}
                 <Box
                   style={{
-                    width: 36,
-                    height: 36,
-                    borderRadius: '10px',
-                    background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+                    width: 44,
+                    height: 44,
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.95)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#fff',
+                    padding: '6px',
+                    flexShrink: 0,
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
                   }}
                 >
-                  <IconRocket size={20} />
+                  <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Image
+                      src={getAssetPath('/logo.svg')}
+                      alt="لوگوی گروه فضایی سپهر"
+                      fill
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </div>
                 </Box>
                 <Title order={3} size="h4" fw={800} c="white">
                   گروه فضایی سپهر شریف
@@ -63,40 +80,37 @@ export default function Footer() {
                 برگزارکننده رویدادها و دوره‌های تخصصی مهندسی هوافضا، ماهواره‌های مدار پایین (LEO) و سامانه‌های فضایی در دانشکده مهندسی هوافضای دانشگاه صنعتی شریف.
               </Text>
 
+              {/* آیکون‌های اجتماعی با کنتراست کافی روی پس‌زمینه تیره */}
               <Group gap="sm" mt="xs">
-                <ActionIcon
-                  size="lg"
-                  radius="md"
-                  variant="subtle"
-                  color="gray"
-                  component="a"
-                  href="https://t.me"
-                  target="_blank"
-                >
-                  <IconBrandTelegram size={20} />
-                </ActionIcon>
-                <ActionIcon
-                  size="lg"
-                  radius="md"
-                  variant="subtle"
-                  color="gray"
-                  component="a"
-                  href="https://instagram.com"
-                  target="_blank"
-                >
-                  <IconBrandInstagram size={20} />
-                </ActionIcon>
-                <ActionIcon
-                  size="lg"
-                  radius="md"
-                  variant="subtle"
-                  color="gray"
-                  component="a"
-                  href="https://linkedin.com"
-                  target="_blank"
-                >
-                  <IconBrandLinkedin size={20} />
-                </ActionIcon>
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <ActionIcon
+                    key={label}
+                    size="lg"
+                    radius="md"
+                    aria-label={label}
+                    component="a"
+                    href={href}
+                    target="_blank"
+                    style={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      color: '#e2e8f0',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                    }}
+                    styles={{
+                      root: {
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          backgroundColor: '#2563eb',
+                          borderColor: '#2563eb',
+                          color: '#ffffff',
+                          transform: 'translateY(-2px)',
+                        },
+                      },
+                    }}
+                  >
+                    <Icon size={20} stroke={1.8} />
+                  </ActionIcon>
+                ))}
               </Group>
             </Stack>
           </Grid.Col>
@@ -151,7 +165,7 @@ export default function Footer() {
 
         <Group justify="space-between" align="center">
           <Text size="xs" c="gray.5">
-            © ۱۴۰۳ تمامی حقوق برای گروه فضایی سپهر دانشگاه صنعتی شریف محفوظ است.
+            © 1405 تمامی حقوق برای گروه فضایی سپهر دانشگاه صنعتی شریف محفوظ است.
           </Text>
           <Text size="xs" c="gray.5">
             World Space Week • Sharif University of Technology
