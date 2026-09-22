@@ -116,6 +116,7 @@ export default function HeroSection() {
                 size="lg"
                 color="blue"
                 rightSection={<IconChevronLeft size={18} />}
+                className="hero-primary-cta"
                 style={{
                   borderRadius: '14px',
                   fontWeight: 700,
@@ -130,6 +131,12 @@ export default function HeroSection() {
               <Button
                 component="a"
                 href="#schedule"
+                onClick={(event) => {
+                  event.preventDefault();
+                  document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  window.history.replaceState(null, '', '#schedule');
+                }}
+                className="hero-secondary-cta"
                 variant="default"
                 size="lg"
                 style={{

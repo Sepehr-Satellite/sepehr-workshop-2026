@@ -40,8 +40,11 @@ export default function Header() {
     >
       <Container size="xl" h={72}>
         <Group justify="space-between" align="center" h="100%" wrap="nowrap">
-          {/* Brand / Logo (Left side) */}
-          <Box style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+          {/* Brand / Logo (Desktop) */}
+          <Box
+            visibleFrom="md"
+            style={{ flex: 1, display: 'flex', alignItems: 'center' }}
+          >
             <Link href="/" style={{ textDecoration: 'none' }}>
               <Group gap="xs" wrap="nowrap">
                 <Box
@@ -49,8 +52,7 @@ export default function Header() {
                     position: 'relative',
                     width: 72,
                     height: 72,
-                    borderRadius: '10px',
-                    overflow: 'hidden',
+                    flexShrink: 0,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -65,13 +67,44 @@ export default function Header() {
                     priority
                   />
                 </Box>
-                <Stack gap={0}>
-                  <Group gap={6} align="center" wrap="nowrap">
-                    <Text fw={800} size="md" c="slate.9">
-                      گروه فضایی سپهر
-                    </Text>
-                  </Group>
-                </Stack>
+                <Text fw={800} size="md" c="slate.9" style={{ whiteSpace: 'nowrap' }}>
+                  گروه فضایی سپهر
+                </Text>
+              </Group>
+            </Link>
+          </Box>
+
+          {/* Full brand on mobile: keep both logo and title visible */}
+          <Box hiddenFrom="md" style={{ display: 'flex', alignItems: 'center', minWidth: 0 }}>
+            <Link href="/" style={{ textDecoration: 'none', display: 'block' }}>
+              <Group gap={6} wrap="nowrap" align="center">
+                <Box
+                  style={{
+                    width: 58,
+                    height: 58,
+                    flexShrink: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Image
+                    src={getAssetPath('/logo.svg')}
+                    alt="لوگوی گروه فضایی سپهر"
+                    width={58}
+                    height={58}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    priority
+                  />
+                </Box>
+                <Text
+                  fw={800}
+                  size="sm"
+                  c="slate.9"
+                  style={{ whiteSpace: 'nowrap', lineHeight: 1.35 }}
+                >
+                  گروه فضایی سپهر
+                </Text>
               </Group>
             </Link>
           </Box>
@@ -85,18 +118,18 @@ export default function Header() {
                 href={item.link}
                 size="sm"
                 fw={600}
-                c="slate.7"
+                c={item.link === '/#schedule' ? 'blue.6' : '#4c1d95'}
                 style={{
                   textDecoration: 'none',
-                  transition: 'color 0.2s ease',
+                  transition: 'color 0.2s ease, background-color 0.2s ease',
                   padding: '6px 10px',
                   borderRadius: '6px',
                 }}
                 styles={{
                   root: {
                     '&:hover': {
-                      color: 'var(--mantine-color-blue-6)',
-                      backgroundColor: '#f1f5f9',
+                      color: item.link === '/#schedule' ? 'var(--mantine-color-blue-7)' : '#3b1674',
+                      backgroundColor: item.link === '/#schedule' ? 'var(--mantine-color-blue-0)' : '#f5f0ff',
                     },
                   },
                 }}
@@ -107,15 +140,9 @@ export default function Header() {
           </Group>
 
           {/* Right Action / Mobile Burger Placeholder */}
-          <Box
-            style={{
-              flex: 1,
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
-            <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
+          <Box visibleFrom="md" style={{ flex: 1 }} />
+          <Box hiddenFrom="md" style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+            <Burger opened={opened} onClick={toggle} size="sm" />
           </Box>
         </Group>
       </Container>
@@ -149,7 +176,7 @@ export default function Header() {
               href={item.link}
               size="md"
               fw={600}
-              c="slate.8"
+              c={item.link === '/#schedule' ? 'blue.6' : '#4c1d95'}
               onClick={close}
               style={{ textDecoration: 'none', padding: '8px 0' }}
             >

@@ -1,0 +1,101 @@
+.headerContainer {
+  padding-inline: var(--mantine-spacing-md);
+}
+
+.brandArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.logoBox {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImage {
+  width: 72px;
+  height: 72px;
+}
+
+.brandTitle {
+  white-space: nowrap;
+}
+
+.actionArea {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 61.99em) {
+  .headerContainer {
+    padding-inline: 12px;
+  }
+
+  .brandArea {
+    flex: 0 1 auto;
+  }
+
+  .brandGroup {
+    gap: 6px;
+  }
+
+  .logoBox {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+    overflow: visible;
+  }
+
+  .logoImage {
+    width: 58px;
+    height: 58px;
+  }
+
+  .brandText {
+    min-width: max-content;
+  }
+
+  .brandTitle {
+    font-size: 14px;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  .actionArea {
+    flex: 0 0 auto;
+    margin-inline-start: auto;
+    padding-inline-start: 8px;
+  }
+}
+
+@media (max-width: 24em) {
+  .headerContainer {
+    padding-inline: 10px;
+  }
+
+  .logoBox {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+  }
+
+  .logoImage {
+    width: 54px;
+    height: 54px;
+  }
+
+  .brandTitle {
+    font-size: 13px;
+  }
+}
