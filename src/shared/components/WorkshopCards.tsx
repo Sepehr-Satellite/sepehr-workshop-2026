@@ -38,7 +38,7 @@ export default function WorkshopCards() {
             <div>
               <Card.Section pos="relative" className={styles.workshopImageFrame}>
                 <Image
-                  src={getAssetPath(workshop.heroImage)}
+                  src={workshop.heroImage}
                   fit="contain"
                   alt={workshop.title}
                   className={styles.workshopImage}
