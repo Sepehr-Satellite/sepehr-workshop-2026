@@ -1,132 +1,503 @@
+import React from 'react';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { WORKSHOPS } from '@/modules/workshop/data/workshops';
-import NavButton from '@/shared/components/NavButton'; // استفاده از کامپوننت کلاینتی که ساختیم
 import {
   Container,
   Title,
   Text,
-  Paper,
-  Group,
   Badge,
+  Card,
+  Group,
   Stack,
+  Button,
   ThemeIcon,
   SimpleGrid,
+  Paper,
+  Divider,
+  Box,
+  Image,
 } from '@mantine/core';
 import {
+  IconArrowRight,
   IconClock,
+  IconCalendar,
   IconMapPin,
   IconUser,
-  IconCheck,
-  IconArrowRight,
+  IconListCheck,
+  IconDeviceLaptop,
+  IconSparkles,
+  IconChevronLeft,
+  IconBook,
+  IconPointFilled,
 } from '@tabler/icons-react';
 
-// تولید استاتیک مسیرها
-export async function generateStaticParams() {
-  return WORKSHOPS.map((w) => ({
-    slug: w.slug,
-  }));
+import { WORKSHOPS, Workshop } from '@/modules/workshop/data/workshops';
+
+// اسلاگ‌های ثابت برای تضمین Static Export
+const STATIC_SLUGS = [
+  'cdh-arduino',
+  'cdh-stm32',
+  'avionics-altium',
+  'avionics-power',
+  'additive-manufacturing',
+  'adcs-control',
+  'remote-sensing-control',
+  'agentic-ai-ground-station',
+  'ttnc-sdr',
+];
+
+export function generateStaticParams() {
+  const dynamicSlugs =
+    Array.isArray(WORKSHOPS) && WORKSHOPS.length > 0
+      ? WORKSHOPS.map((w) => ({ slug: String(w.slug) }))
+      : [];
+
+  const allSlugs = Array.from(
+    new Set([...dynamicSlugs.map((s) => s.slug), ...STATIC_SLUGS])
+  );
+
+  return allSlugs.map((slug) => ({ slug }));
 }
 
-export default async function WorkshopDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const workshop = WORKSHOPS.find((w) => w.slug === slug);
+export const dynamicParams = false;
+
+interface PageProps {
+  params: Promise<{ slug: string }> | { slug: string };
+}
+
+export default async function WorkshopDetailPage({ params }: PageProps) {
+  const resolvedParams = params instanceof Promise ? await params : params;
+  const { slug } = resolvedParams;
+
+  const workshop: Workshop | undefined = WORKSHOPS?.find(
+    (w) => w.slug === slug || w.id?.toLowerCase() === slug.toLowerCase()
+  );
 
   if (!workshop) {
     notFound();
   }
 
-  const isCompleted = workshop.status === 'completed';
-
   return (
-    <div style={{ paddingTop: '3rem', paddingBottom: '6rem', backgroundColor: '#f8fafc', minHeight: '100vh' }}>
-      <Container size="lg">
-        {/* دکمه بازگشت */}
-        <div style={{ marginBottom: '2rem' }}>
-          <NavButton
-            href="/#timeline"
-            variant="subtle"
-            color="gray"
-            leftSection={<IconArrowRight size={18} />}
-          >
-            بازگشت به برنامه کارگاه‌ها
-          </NavButton>
-        </div>
+    <Box
+      style={{
+        minHeight: '100vh',
+        backgroundColor: '#f8fafc',
+        color: '#1e293b',
+        paddingBottom: '5rem',
+      }}
+      dir="rtl"
+    >
+      {/* مدیا کوئری‌های صریح و استاندارد برای هندل دسکتاپ و موبایل */}
+      <style>{`
+        .workshop-layout-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          width: 100%;
+        }
+        @media (min-width: 900px) {
+          .workshop-layout-grid {
+            grid-template-columns: 1fr 360px;
+            gap: 2.5rem;
+            align-items: start;
+          }
+        }
+      `}</style>
 
-        {/* هدر */}
-        <div style={{ marginBottom: '2.5rem' }}>
-          <Badge color={workshop.color || 'blue'} size="lg" variant="light" mb="md" radius="md">
-            {workshop.category}
-          </Badge>
-          <Title order={1} style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 900, color: '#0f172a', marginBottom: '1rem' }}>
-            {workshop.title}
-          </Title>
-          <Text size="lg" c="dimmed" style={{ maxWidth: '800px', lineHeight: 1.7 }}>
-            {workshop.subtitle}
-          </Text>
-        </div>
+      {/* هدر ناوبری / دکمه بازگشت */}
+      <Box
+        style={{
+          borderBottom: '1px solid #e2e8f0',
+          backgroundColor: '#ffffff',
+          position: 'sticky',
+          top: 0,
+          zIndex: 20,
+        }}
+        py="sm"
+      >
+        <Container size="xl" px={{ base: 'md', sm: 'lg' }}>
+          <Link href="/#workshops" style={{ textDecoration: 'none' }}>
+            <Button
+              variant="subtle"
+              color="gray"
+              size="sm"
+              leftSection={<IconArrowRight size={18} />}
+              style={{ color: '#475569', fontWeight: 600 }}
+            >
+              بازگشت به فهرست کارگاه‌ها
+            </Button>
+          </Link>
+        </Container>
+      </Box>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="2rem">
-          {/* ستون اصلی */}
-          <div style={{ gridColumn: 'span 2' }}>
-            <Paper shadow="xs" p={{ base: 'lg', md: 'xl' }} withBorder style={{ borderRadius: '16px', backgroundColor: '#ffffff' }}>
-              <Title order={3} mb="md" style={{ color: '#1e293b' }}>درباره کارگاه</Title>
-              <Text style={{ lineHeight: 1.9, fontSize: '1.05rem', color: '#334155', whiteSpace: 'pre-line' }}>
+      {/* بخش Hero دوره */}
+      <Box
+        style={{
+          borderBottom: '1px solid #e2e8f0',
+          background: 'linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%)',
+        }}
+        py={{ base: 'lg', md: '3rem' }}
+      >
+        <Container size="xl" px={{ base: 'md', sm: 'lg' }}>
+          <div className="workshop-layout-grid">
+            {/* ستون راست (محتوای اصلی در دسکتاپ) */}
+            <div style={{ width: '100%', minWidth: 0 }}>
+              <Group gap="xs" mb="sm" wrap="wrap">
+                <Badge
+                  size="md"
+                  variant="filled"
+                  style={{
+                    backgroundColor: workshop.color || '#2563eb',
+                    color: '#fff',
+                    fontWeight: 700,
+                  }}
+                >
+                  {workshop.id}
+                </Badge>
+                <Badge size="md" variant="light" color="blue">
+                  {workshop.category}
+                </Badge>
+              </Group>
+
+              <Title
+                order={1}
+                mb="xs"
+                style={{
+                  color: '#0f172a',
+                  fontSize: 'clamp(1.5rem, 3.5vw, 2.3rem)',
+                  fontWeight: 800,
+                  lineHeight: 1.35,
+                }}
+              >
+                {workshop.title}
+              </Title>
+
+              <Text size="md" c="dimmed" mb="md" style={{ fontWeight: 500 }}>
+                {workshop.subtitle}
+              </Text>
+
+              <Text
+                size="sm"
+                mb="lg"
+                style={{ lineHeight: 1.85, color: '#334155' }}
+              >
                 {workshop.description}
               </Text>
 
+              {/* هایلایت‌ها */}
               {workshop.highlights && workshop.highlights.length > 0 && (
-                <>
-                  <Title order={3} mt="2.5rem" mb="1.25rem" style={{ color: '#1e293b' }}>سرفصل‌ها</Title>
-                  <Stack gap="sm">
-                    {workshop.highlights.map((item, index) => (
-                      <Group key={index} align="flex-start" wrap="nowrap" gap="sm" style={{ padding: '0.5rem 0', borderBottom: index !== workshop.highlights.length - 1 ? '1px dashed #f1f5f9' : 'none' }}>
-                        <ThemeIcon color={workshop.color || 'blue'} size={24} radius="xl" variant="light" style={{ flexShrink: 0, marginTop: '2px' }}>
-                          <IconCheck size={14} />
+                <Paper
+                  p="md"
+                  radius="md"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+                  }}
+                >
+                  <Group gap="xs" mb="xs">
+                    <IconSparkles size={18} color="#d97706" />
+                    <Text fw={700} size="sm" c="dark.7">
+                      محورهای کلیدی دوره:
+                    </Text>
+                  </Group>
+                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="xs">
+                    {workshop.highlights.map((h, i) => (
+                      <Group key={i} gap="xs" align="flex-start" wrap="nowrap">
+                        <ThemeIcon
+                          size={18}
+                          radius="xl"
+                          color="amber"
+                          variant="light"
+                          mt={2}
+                          style={{ flexShrink: 0 }}
+                        >
+                          <IconChevronLeft size={12} />
                         </ThemeIcon>
-                        <Text size="md" style={{ color: '#475569', lineHeight: 1.6 }}>{item}</Text>
+                        <Text size="xs" style={{ color: '#475569', lineHeight: 1.6 }}>
+                          {h}
+                        </Text>
+                      </Group>
+                    ))}
+                  </SimpleGrid>
+                </Paper>
+              )}
+            </div>
+
+            {/* ستون چپ (کارت مشخصات سریع در دسکتاپ) */}
+            <div style={{ width: '100%' }}>
+              <Paper
+                radius="md"
+                p="md"
+                style={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 4px 12px -2px rgba(0, 0, 0, 0.06)',
+                  width: '100%',
+                }}
+              >
+                {workshop.heroImage && (
+                  <Box
+                    mb="md"
+                    style={{
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      border: '1px solid #e2e8f0',
+                    }}
+                  >
+                    <Image
+                      src={workshop.heroImage}
+                      alt={workshop.title}
+                      height={170}
+                      fallbackSrc="https://placehold.co/600x400/f1f5f9/475569?text=Sepehr+Workshop"
+                      style={{ objectFit: 'cover', width: '100%' }}
+                    />
+                  </Box>
+                )}
+
+                <Stack gap="sm">
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs" wrap="nowrap">
+                      <IconClock size={16} color="#2563eb" style={{ flexShrink: 0 }} />
+                      <Text size="xs" c="dimmed">مدت زمان:</Text>
+                    </Group>
+                    <Text size="xs" fw={600} c="dark.8">{workshop.hours}</Text>
+                  </Group>
+
+                  <Divider color="#f1f5f9" />
+
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs" wrap="nowrap">
+                      <IconCalendar size={16} color="#2563eb" style={{ flexShrink: 0 }} />
+                      <Text size="xs" c="dimmed">تاریخ برگزاری:</Text>
+                    </Group>
+                    <Text size="xs" fw={600} c="dark.8">{workshop.date}</Text>
+                  </Group>
+
+                  <Divider color="#f1f5f9" />
+
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs" wrap="nowrap">
+                      <IconClock size={16} color="#2563eb" style={{ flexShrink: 0 }} />
+                      <Text size="xs" c="dimmed">ساعت برگزاری:</Text>
+                    </Group>
+                    <Text size="xs" fw={600} c="dark.8">{workshop.time}</Text>
+                  </Group>
+
+                  <Divider color="#f1f5f9" />
+
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs" wrap="nowrap">
+                      <IconMapPin size={16} color="#2563eb" style={{ flexShrink: 0 }} />
+                      <Text size="xs" c="dimmed">محل برگزاری:</Text>
+                    </Group>
+                    <Text size="xs" fw={600} c="dark.8">{workshop.location}</Text>
+                  </Group>
+
+                  <Divider color="#f1f5f9" />
+
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs" wrap="nowrap">
+                      <IconUser size={16} color="#2563eb" style={{ flexShrink: 0 }} />
+                      <Text size="xs" c="dimmed">مدرس دوره:</Text>
+                    </Group>
+                    <Text size="xs" fw={600} c="dark.8">{workshop.speaker}</Text>
+                  </Group>
+                </Stack>
+              </Paper>
+            </div>
+          </div>
+        </Container>
+      </Box>
+
+      {/* بخش سرفصل‌ها، پیش‌نیازها و نیازمندی‌ها */}
+      <Container size="xl" mt="2rem" px={{ base: 'md', sm: 'lg' }}>
+        <div className="workshop-layout-grid">
+          {/* ستون سرفصل‌های کارگاه */}
+          <div style={{ width: '100%', minWidth: 0 }}>
+            <Group gap="xs" mb="md">
+              <IconBook size={22} color="#2563eb" />
+              <Title order={2} size="h3" c="dark.8" style={{ fontSize: '1.25rem' }}>
+                سرفصل‌های آموزشی کارگاه
+              </Title>
+            </Group>
+
+            <Stack gap="md">
+              {workshop.syllabus && workshop.syllabus.length > 0 ? (
+                workshop.syllabus.map((block, bIndex) => (
+                  <Card
+                    key={bIndex}
+                    radius="md"
+                    p="md"
+                    style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #e2e8f0',
+                      boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+                      width: '100%',
+                    }}
+                  >
+                    <Group justify="space-between" mb="sm" wrap="wrap" gap="xs">
+                      <Title
+                        order={3}
+                        style={{ fontSize: '1.05rem', color: '#1e40af' }}
+                      >
+                        {block.title}
+                      </Title>
+                      {block.duration && (
+                        <Badge variant="light" color="blue" size="sm">
+                          {block.duration}
+                        </Badge>
+                      )}
+                    </Group>
+
+                    <Stack gap="xs">
+                      {block.content.map((item, cIndex) => (
+                        <Paper
+                          key={cIndex}
+                          p="sm"
+                          radius="sm"
+                          style={{
+                            backgroundColor: '#f8fafc',
+                            border: '1px solid #e2e8f0',
+                          }}
+                        >
+                          <Text fw={600} size="xs" c="dark.7" mb={6}>
+                            {item.subtitle}
+                          </Text>
+
+                          <Stack gap={6}>
+                            {item.bullets.map((bullet, bulletIdx) => (
+                              <Group
+                                key={bulletIdx}
+                                gap="xs"
+                                align="flex-start"
+                                wrap="nowrap"
+                              >
+                                <ThemeIcon
+                                  size={16}
+                                  radius="xl"
+                                  color="blue"
+                                  variant="light"
+                                  mt={2}
+                                  style={{ flexShrink: 0 }}
+                                >
+                                  <IconChevronLeft size={10} />
+                                </ThemeIcon>
+                                <Text size="xs" style={{ color: '#475569', lineHeight: 1.6 }}>
+                                  {bullet}
+                                </Text>
+                              </Group>
+                            ))}
+                          </Stack>
+                        </Paper>
+                      ))}
+                    </Stack>
+                  </Card>
+                ))
+              ) : (
+                <Text size="sm" c="dimmed">
+                  سرفصل‌های این دوره به‌زودی بارگذاری خواهند شد.
+                </Text>
+              )}
+            </Stack>
+          </div>
+
+          {/* ستون پیش‌نیازها و ملزومات */}
+          <div style={{ width: '100%' }}>
+            <Stack gap="md" style={{ width: '100%' }}>
+              {/* کارت پیش‌نیازها */}
+              <Card
+                radius="md"
+                p="md"
+                style={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+                  width: '100%',
+                }}
+              >
+                <Group gap="xs" mb="xs">
+                  <IconListCheck size={18} color="#2563eb" />
+                  <Title order={4} size="h4" c="dark.8" style={{ fontSize: '1rem' }}>
+                    پیش‌نیازهای دوره
+                  </Title>
+                </Group>
+                <Divider mb="sm" color="#f1f5f9" />
+                {workshop.prerequisites && workshop.prerequisites.length > 0 ? (
+                  <Stack gap="xs">
+                    {workshop.prerequisites.map((p, idx) => (
+                      <Group
+                        key={idx}
+                        gap="xs"
+                        align="flex-start"
+                        wrap="nowrap"
+                      >
+                        <IconPointFilled
+                          size={12}
+                          color="#2563eb"
+                          style={{ marginTop: 4, flexShrink: 0 }}
+                        />
+                        <Text size="xs" style={{ color: '#475569', lineHeight: 1.6 }}>
+                          {p}
+                        </Text>
                       </Group>
                     ))}
                   </Stack>
-                </>
-              )}
-            </Paper>
-          </div>
+                ) : (
+                  <Text size="xs" c="dimmed">
+                    این دوره پیش‌نیاز خاصی ندارد.
+                  </Text>
+                )}
+              </Card>
 
-          {/* سایدبار */}
-          <div>
-            <Paper shadow="sm" p="xl" withBorder style={{ borderRadius: '16px', backgroundColor: '#ffffff', position: 'sticky', top: '2rem' }}>
-              <Title order={4} mb="lg" style={{ color: '#0f172a' }}>مشخصات برگزاری</Title>
-              <Stack gap="lg">
-                <InfoItem icon={<IconClock size={20} />} label="زمان برگزاری" value={`${workshop.date} | ساعت ${workshop.time}`} />
-                <InfoItem icon={<IconMapPin size={20} />} label="مکان برگزاری" value={workshop.location} />
-                <InfoItem icon={<IconUser size={20} />} label="مدرس" value={workshop.speaker} />
-                <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '1.25rem', marginTop: '0.5rem' }}>
-                  <Text size="xs" c="dimmed" mb="xs">وضعیت کارگاه:</Text>
-                  <div style={{ padding: '0.6rem', textAlign: 'center', backgroundColor: isCompleted ? '#f1f5f9' : '#f0fdf4', borderRadius: '8px', color: isCompleted ? '#64748b' : '#15803d', fontWeight: 600 }}>
-                    {workshop.statusLabel || (isCompleted ? 'برگزار شده' : 'ثبت‌نام')}
-                  </div>
-                </div>
-              </Stack>
-            </Paper>
+              {/* کارت نیازمندی‌ها */}
+              <Card
+                radius="md"
+                p="md"
+                style={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+                  width: '100%',
+                }}
+              >
+                <Group gap="xs" mb="xs">
+                  <IconDeviceLaptop size={18} color="#059669" />
+                  <Title order={4} size="h4" c="dark.8" style={{ fontSize: '1rem' }}>
+                    تجهیزات و نیازمندی‌ها
+                  </Title>
+                </Group>
+                <Divider mb="sm" color="#f1f5f9" />
+                {workshop.requirements && workshop.requirements.length > 0 ? (
+                  <Stack gap="xs">
+                    {workshop.requirements.map((r, idx) => (
+                      <Group
+                        key={idx}
+                        gap="xs"
+                        align="flex-start"
+                        wrap="nowrap"
+                      >
+                        <IconPointFilled
+                          size={12}
+                          color="#059669"
+                          style={{ marginTop: 4, flexShrink: 0 }}
+                        />
+                        <Text size="xs" style={{ color: '#475569', lineHeight: 1.6 }}>
+                          {r}
+                        </Text>
+                      </Group>
+                    ))}
+                  </Stack>
+                ) : (
+                  <Text size="xs" c="dimmed">
+                    تجهیزات خاصی ذکر نشده است.
+                  </Text>
+                )}
+              </Card>
+            </Stack>
           </div>
-        </SimpleGrid>
+        </div>
       </Container>
-    </div>
-  );
-}
-
-function InfoItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
-  return (
-    <Group align="flex-start" gap="sm" wrap="nowrap">
-      <ThemeIcon color="gray" variant="light" size={36} radius="md" style={{ flexShrink: 0 }}>{icon}</ThemeIcon>
-      <div>
-        <Text size="xs" c="dimmed" fw={500}>{label}</Text>
-        <Text fw={600} size="sm" style={{ color: '#1e293b', marginTop: '2px' }}>{value}</Text>
-      </div>
-    </Group>
+    </Box>
   );
 }

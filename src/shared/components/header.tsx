@@ -112,30 +112,27 @@ export default function Header() {
           {/* Centered Navigation Links (Desktop) */}
           <Group gap="xl" visibleFrom="md" justify="center" style={{ flex: 2 }}>
             {navLinks.map((item) => (
-              <Text
-                key={item.link}
-                component={Link}
-                href={item.link}
-                size="sm"
-                fw={600}
-                c={item.link === '/#schedule' ? 'blue.6' : '#4c1d95'}
-                style={{
-                  textDecoration: 'none',
-                  transition: 'color 0.2s ease, background-color 0.2s ease',
-                  padding: '6px 10px',
-                  borderRadius: '6px',
-                }}
-                styles={{
-                  root: {
-                    '&:hover': {
-                      color: item.link === '/#schedule' ? 'var(--mantine-color-blue-7)' : '#3b1674',
-                      backgroundColor: item.link === '/#schedule' ? 'var(--mantine-color-blue-0)' : '#f5f0ff',
-                    },
-                  },
-                }}
-              >
-                {item.label}
-              </Text>
+                <Button
+                  key={item.link}
+                  component="a"
+                  href={item.link}
+                  variant="subtle" // This removes the solid background
+                  color="blue"     // Keeps the blue text color
+                  styles={{
+                    root: {
+                      borderRadius: '8px',      // Slightly rounded, not a full pill
+                      fontWeight: 700,          // Bold to match your visual
+                      height: 'auto',           // Shrinks to fit the text size
+                      padding: '8px 16px',      // Comfortable padding
+                      // Optional: Add a subtle hover effect if desired
+                      '&:hover': {
+                        backgroundColor: '#f0f7ff', // Very light blue background on hover
+                      }
+                    }
+                  }}
+                >
+                  {item.label}
+                </Button>
             ))}
           </Group>
 
@@ -153,6 +150,7 @@ export default function Header() {
         onClose={close}
         size="75%"
         position="right"
+        transitionProps={{ transition: 'slide-right', duration: 250 }}
         title={
           <Group gap="xs">
             <Image
@@ -170,32 +168,30 @@ export default function Header() {
       >
         <Stack gap="md" mt="lg">
           {navLinks.map((item) => (
-            <Text
-              key={item.link}
-              component={Link}
-              href={item.link}
-              size="md"
-              fw={600}
-              c={item.link === '/#schedule' ? 'blue.6' : '#4c1d95'}
-              onClick={close}
-              style={{ textDecoration: 'none', padding: '8px 0' }}
-            >
-              {item.label}
-            </Text>
+                <Button
+                  key={item.link}
+                  component="a"
+                  href={item.link}
+                  onClick={close}
+                  variant="subtle" // This removes the solid background
+                  color="blue"     // Keeps the blue text color
+                  styles={{
+                    root: {
+                      borderRadius: '8px',      // Slightly rounded, not a full pill
+                      fontWeight: 700,          // Bold to match your visual
+                      height: 'auto',           // Shrinks to fit the text size
+                      padding: '8px 16px',      // Comfortable padding
+                      // Optional: Add a subtle hover effect if desired
+                      '&:hover': {
+                        backgroundColor: '#f0f7ff', // Very light blue background on hover
+                      }
+                    }
+                  }}
+                >
+                  {item.label}
+                </Button>
           ))}
-          <Button
-            component={Link}
-            href="/#workshops"
-            onClick={close}
-            fullWidth
-            size="md"
-            radius="md"
-            variant="gradient"
-            gradient={{ from: '#1e3a8a', to: '#2563eb', deg: 105 }}
-            mt="md"
-          >
-            ثبت‌نام در کارگاه‌ها
-          </Button>
+
         </Stack>
       </Drawer>
     </Box>

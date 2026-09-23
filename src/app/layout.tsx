@@ -4,6 +4,7 @@ import { MantineProvider, createTheme } from '@mantine/core';
 import { Vazirmatn } from 'next/font/google';
 import Header from '@/shared/components/header';
 import Footer from '@/shared/components/Footer';
+import { getAssetPath } from '@/utils/prefix';
 
 // فونت وزیرمتن
 const vazirmatn = Vazirmatn({
@@ -25,6 +26,9 @@ const theme = createTheme({
 export const metadata = {
   title: 'رویداد هفته جهانی فضا | گروه فضایی سپهر شریف',
   description: 'سلسله کارگاه‌های تخصصی مهندسی ماهواره و سامانه‌های فضایی دانشگاه صنعتی شریف',
+  icons: {
+  icon: getAssetPath('/logo.svg'), // یا مسیر دلخواه شما در پوشه public
+  },
 };
 
 export default function RootLayout({

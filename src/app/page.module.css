@@ -339,6 +339,40 @@ a.secondary {
   }
 }
 
+/* فاصله‌گذاری کانتینر کارگاه‌ها از بالا و پایین */
+.workshopContainer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* در سایز لپ‌تاپ و تبلت فاصله‌ی بیشتری می‌گیرد تا جلوه بهتری داشته باشد */
+@media (min-width: 48em) { /* sm */
+  .workshopContainer {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+}
+
+@media (min-width: 62em) { /* md */
+  .workshopContainer {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+/* فاصله عنوان با کارت‌ها */
+.workshopHeader {
+  margin-bottom: 32px; /* در موبایل */
+}
+
+@media (min-width: 48em) { /* در تبلت و لپ‌تاپ */
+  .workshopHeader {
+    margin-bottom: 56px;
+  }
+}
+
 /* Mobile card metadata: duration sits at the top-right; difficulty gets the full meta row. */
 @media (max-width: 600px) {
   .workshopCard {
