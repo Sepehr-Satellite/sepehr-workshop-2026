@@ -21,8 +21,17 @@ const HEADER_HEIGHT = 72;
 
 export default function WorkshopScrollShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const updateMobile = () => setIsMobile(mediaQuery.matches);
+    updateMobile();
+    mediaQuery.addEventListener('change', updateMobile);
+    return () => mediaQuery.removeEventListener('change', updateMobile);
+  }, []);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
@@ -46,7 +55,7 @@ export default function WorkshopScrollShowcase() {
         });
       },
       {
-        root: scrollContainer,
+        root: isMobile ? null : scrollContainer,
         rootMargin: '-45% 0px -45% 0px',
         threshold: 0,
       }
@@ -59,7 +68,7 @@ export default function WorkshopScrollShowcase() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   const scrollToSlide = (index: number) => {
     const scrollContainer = scrollContainerRef.current;
@@ -80,17 +89,17 @@ export default function WorkshopScrollShowcase() {
       data-testid="workshop-scroll-showcase"
       style={{
         position: 'relative',
-        height: `calc(100dvh - ${HEADER_HEIGHT}px)`,
-        minHeight: '520px',
-        overflowY: 'auto',
+        height: isMobile ? 'auto' : `calc(100dvh - ${HEADER_HEIGHT}px)`,
+        minHeight: isMobile ? 0 : '520px',
+        overflowY: isMobile ? 'visible' : 'auto',
         overflowX: 'hidden',
-        scrollSnapType: 'y mandatory',
-        scrollBehavior: 'smooth',
+        scrollSnapType: isMobile ? 'none' : 'y mandatory',
+        scrollBehavior: isMobile ? 'auto' : 'smooth',
         scrollPaddingBlock: '1px',
         backgroundColor: '#05070d',
       }}
     >
-      <Box
+      {!isMobile && <Box
         aria-label="Workshop slides"
         style={{
           position: 'sticky',
@@ -133,7 +142,7 @@ export default function WorkshopScrollShowcase() {
             />
           ))}
         </Box>
-      </Box>
+      </Box>}
 
       {WORKSHOPS.map((workshop, index) => {
         const isActive = activeIndex === index;
@@ -152,12 +161,12 @@ export default function WorkshopScrollShowcase() {
               isolation: 'isolate',
               display: 'flex',
               alignItems: 'center',
-              minHeight: '100%',
+              minHeight: isMobile ? 'auto' : '100%',
               boxSizing: 'border-box',
-              paddingBlock: 'clamp(32px, 6vh, 72px)',
+              paddingBlock: isMobile ? '32px' : 'clamp(32px, 6vh, 72px)',
               overflow: 'hidden',
-              scrollSnapAlign: 'start',
-              scrollSnapStop: 'always',
+              scrollSnapAlign: isMobile ? 'none' : 'start',
+              scrollSnapStop: isMobile ? 'normal' : 'always',
             }}
           >
             <Box

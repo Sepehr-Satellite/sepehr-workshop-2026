@@ -1,4 +1,5 @@
 html {
+  scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
 }
@@ -29,4 +30,35 @@ html::-webkit-scrollbar-thumb {
   display: none;
   width: 0;
   height: 0;
+}
+
+
+/* Hero CTA interactions */
+.hero-primary-cta,
+.hero-secondary-cta {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease !important;
+}
+
+.hero-primary-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -8px rgba(29, 78, 216, 0.48) !important;
+}
+
+.hero-secondary-cta:hover {
+  transform: translateY(-3px);
+  background-color: #f8fafc !important;
+  border-color: #93c5fd !important;
+  box-shadow: 0 12px 24px -12px rgba(15, 23, 42, 0.3);
+}
+
+.hero-primary-cta:active,
+.hero-secondary-cta:active {
+  transform: translateY(-1px);
+}
+
+@media (hover: none) {
+  .hero-primary-cta:hover,
+  .hero-secondary-cta:hover {
+    transform: none;
+  }
 }
