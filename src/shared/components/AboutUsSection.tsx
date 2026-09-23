@@ -9,6 +9,7 @@ import {
   Stack,
   SimpleGrid,
   Paper,
+  Image,
   Divider,
 } from '@mantine/core';
 import {
@@ -16,6 +17,8 @@ import {
   IconSparkles,
   IconSatellite,
 } from '@tabler/icons-react';
+
+import { getAssetPath } from '@/utils/prefix';
 
 const WORKSHOP_IMAGES = [
   '/images/gallery/ws_gallery_1.jpg',
@@ -105,9 +108,9 @@ export default function AboutUsSection() {
           <div className="marquee-group">
             {WORKSHOP_IMAGES.map((imgSrc, idx) => (
               <div key={`g1-${idx}`} className="marquee-card">
-                <img
-                  src={imgSrc}
-                  alt={`کارگاه ${idx + 1}`}
+                <Image
+                  src={getAssetPath(imgSrc)}
+                  fit="contain"
                   style={{
                     width: '100%',
                     height: '100%',
