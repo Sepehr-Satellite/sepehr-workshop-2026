@@ -127,7 +127,7 @@ export default function AboutUsSection() {
             {WORKSHOP_IMAGES.map((imgSrc, idx) => (
               <div key={`g2-${idx}`} className="marquee-card">
                 <img
-                  src={imgSrc}
+                  src={getAssetPath(imgSrc)}
                   alt={`کارگاه ${idx + 1}`}
                   style={{
                     width: '100%',
