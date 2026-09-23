@@ -42,7 +42,6 @@ export default function WorkshopCards() {
                   fit="contain"
                   alt={workshop.title}
                   className={styles.workshopImage}
-                  fallbackSrc="https://placehold.co/600x400/e2e8f0/1e293b?text=CubeSat+Subsystem"
                 />
                 <Badge
                   pos="absolute"
