@@ -317,6 +317,18 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     </Text>
                   </Group>
 
+                  <Box
+                    p="sm"
+                    style={{ backgroundColor: '#eff6ff', borderRadius: '8px' }}
+                  >
+                    <Text size="xs" fw={600} c="blue.8">
+                      ۱۰٪ تخفیف مخصوص دانشجویان
+                    </Text>
+                    <Text size="xs" fw={600} c="blue.8" mt={4}>
+                      ۲۰٪ تخفیف مخصوص دانشجویان صنعتی شریف
+                    </Text>
+                  </Box>
+
                   {workshop.registrationUrl && workshop.status !== 'completed' ? (
                     <Button
                       component="a"
