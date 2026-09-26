@@ -3,6 +3,8 @@
 const repoName = 'sepehr-workshop-2026'; // نام دقیق ریپازیتوری شما در گیت‌هاب
 const prefix = process.env.NODE_ENV === 'production' ? `/${repoName}` : '';
 
+export const getPagePath = (path: string): string => `${prefix}${path}`;
+
 export const getAssetPath = (path: string): string => {
   if (!path) return '';
   if (path.startsWith('http://') || path.startsWith('https://')) return path;

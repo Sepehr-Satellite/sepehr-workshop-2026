@@ -14,7 +14,7 @@ import {
   Box,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { getAssetPath } from '@/utils/prefix';
+import { getAssetPath, getPagePath } from '@/utils/prefix';
 
 const navLinks = [
   { link: '/', label: 'صفحه اصلی' },
@@ -113,9 +113,10 @@ export default function Header() {
           <Group gap="xl" visibleFrom="md" justify="center" style={{ flex: 2 }}>
             {navLinks.map((item) => (
                 <Button
+                
                   key={item.link}
                   component="a"
-                  href={item.link}
+                  href={getPagePath(item.link)}
                   variant="subtle" // This removes the solid background
                   color="blue"     // Keeps the blue text color
                   styles={{
@@ -171,7 +172,7 @@ export default function Header() {
                 <Button
                   key={item.link}
                   component="a"
-                  href={item.link}
+                  href={getPagePath(item.link)}
                   onClick={close}
                   variant="subtle" // This removes the solid background
                   color="blue"     // Keeps the blue text color
