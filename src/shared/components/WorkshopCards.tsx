@@ -21,7 +21,9 @@ export default function WorkshopCards() {
         className={styles.workshopGrid}
         cols={{ base: 2, sm: 2, md: 3 }}
       >
-        {WORKSHOPS.map((workshop) => (
+        {WORKSHOPS
+        .toSorted((a,b) => a.id.localeCompare(b.id))
+        .map((workshop) => (
           <Card
             key={workshop.slug}
             data-workshop-card={workshop.slug}

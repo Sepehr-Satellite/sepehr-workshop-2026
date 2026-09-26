@@ -703,7 +703,7 @@ export const WORKSHOPS: Workshop[] = [
     ]
   },
   {
-    id: "W-07",
+    id: "W-09",
     slug: "ttnc-sdr",
     title: "مخابرات فضایی (TT&C)",
     subtitle: "طراحی، شبیه‌سازی و پیاده‌سازی فرستنده/گیرنده ماهواره با MATLAB و SDR",
@@ -925,7 +925,7 @@ export const WORKSHOPS: Workshop[] = [
     ]
   },
   {
-    id: "W-09",
+    id: "W-07",
     slug: "remote-sensing-control",
     title: "مقدمه‌ای بر سنجش از دور و محموله‌های تصویربرداری فضایی",
     subtitle: "از سنسور تا استخراج داده‌های زمین‌شناختی و پردازش داده‌های ماهواره‌ای",

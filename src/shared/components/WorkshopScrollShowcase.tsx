@@ -120,7 +120,9 @@ export default function WorkshopScrollShowcase() {
             pointerEvents: 'auto',
           }}
         >
-          {WORKSHOPS.map((workshop, index) => (
+          {WORKSHOPS
+          .toSorted((a,b) => a.id.localeCompare(b.id))
+          .map((workshop, index) => (
             <button
               key={`dot-${workshop.slug}`}
               type="button"
@@ -144,7 +146,9 @@ export default function WorkshopScrollShowcase() {
         </Box>
       </Box>}
 
-      {WORKSHOPS.map((workshop, index) => {
+      {WORKSHOPS
+      .toSorted((a,b) => a.id.localeCompare(b.id))
+      .map((workshop, index) => {
         const isActive = activeIndex === index;
 
         return (

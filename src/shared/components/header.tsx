@@ -19,7 +19,7 @@ import { getAssetPath, getPagePath } from '@/utils/prefix';
 const navLinks = [
   { link: '/', label: 'صفحه اصلی' },
   { link: '/#workshops', label: 'کارگاه‌های تخصصی' },
-  { link: '/#about', label: 'درباره هفته جهانی فضا' },
+  { link: '/#about', label: 'درباره ما' },
   { link: '/#schedule', label: 'برنامه زمانی' },
 ];
 

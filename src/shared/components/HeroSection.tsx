@@ -277,12 +277,19 @@ export default function HeroSection() {
               <Divider orientation="vertical" className="hero-stats-divider" />
 
               <div>
-                <Text fw={800} size="xl" c="blue.7" style={{ fontSize: 'clamp(1.15rem, 3.5vw, 1.4rem)' }}>
-                  گواهی رسمی
-                </Text>
-                <Text size="xs" c="dimmed" fw={500}>
-                  مرکز آموزش‌های آزاد دانشگاه صنعتی شریف
-                </Text>
+                <a
+                  href="https://pedu.sharif.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'block', textDecoration: 'none' }}
+                >
+                  <Text fw={800} size="xl" c="blue.7" style={{ fontSize: 'clamp(1.15rem, 3.5vw, 1.4rem)' }}>
+                    گواهی رسمی
+                  </Text>
+                  <Text size="xs" c="dimmed" fw={500}>
+                    مرکز آموزش‌های آزاد دانشگاه صنعتی شریف
+                  </Text>
+                </a>
               </div>
             </div>
           </div>

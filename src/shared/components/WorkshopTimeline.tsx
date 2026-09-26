@@ -73,7 +73,9 @@ export default function WorkshopTimeline() {
             />
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
-              {WORKSHOPS.map((workshop, index) => {
+              {WORKSHOPS
+              .toSorted((a,b) => a.id.localeCompare(b.id))
+              .map((workshop, index) => {
                 const isEven = index % 2 === 0;
 
                 return (
@@ -146,7 +148,9 @@ export default function WorkshopTimeline() {
         {/* ═══════════ لایه موبایل (ساده و بدون بج) ═══════════ */}
         <div className="mobile-layout">
           <div className="mobile-timeline">
-            {WORKSHOPS.map((workshop) => (
+            {WORKSHOPS
+            .toSorted((a,b) => a.id.localeCompare(b.id))
+            .map((workshop) => (
               <div key={workshop.id} className="mobile-item">
                 <div className="mobile-dot" />
 
