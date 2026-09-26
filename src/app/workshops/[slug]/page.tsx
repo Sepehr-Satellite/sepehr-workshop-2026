@@ -23,6 +23,7 @@ import {
   IconCalendar,
   IconMapPin,
   IconUser,
+  IconCoin,
   IconListCheck,
   IconDeviceLaptop,
   IconSparkles,
@@ -303,6 +304,35 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     </Group>
                     <Text size="xs" fw={600} c="dark.8">{workshop.speaker}</Text>
                   </Group>
+
+                  <Divider color="#f1f5f9" />
+
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs" wrap="nowrap">
+                      <IconCoin size={16} color="#2563eb" style={{ flexShrink: 0 }} />
+                      <Text size="xs" c="dimmed">قیمت دوره:</Text>
+                    </Group>
+                    <Text size="xs" fw={600} c="dark.8">
+                      {workshop.price || 'به‌زودی اعلام می‌شود'}
+                    </Text>
+                  </Group>
+
+                  {workshop.registrationUrl && workshop.status !== 'completed' ? (
+                    <Button
+                      component="a"
+                      href={workshop.registrationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      fullWidth
+                      color="blue"
+                    >
+                      ثبت‌نام دوره
+                    </Button>
+                  ) : (
+                    <Button fullWidth disabled>
+                      {workshop.status === 'completed' ? 'ثبت‌نام پایان یافته' : 'لینک ثبت‌نام به‌زودی اعلام می‌شود'}
+                    </Button>
+                  )}
                 </Stack>
               </Paper>
             </div>
