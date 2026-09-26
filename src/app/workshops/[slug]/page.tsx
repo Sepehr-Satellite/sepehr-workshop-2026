@@ -325,7 +325,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                       ۱۰٪ تخفیف مخصوص دانشجویان
                     </Text>
                     <Text size="xs" fw={600} c="blue.8" mt={4}>
-                      ۲۰٪ تخفیف مخصوص دانشجویان صنعتی شریف
+                      ۲۰٪ تخفیف مخصوص دانشجویان دانشگاه صنعتی شریف
                     </Text>
                   </Box>
 

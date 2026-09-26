@@ -281,7 +281,7 @@ export default function HeroSection() {
                   گواهی رسمی
                 </Text>
                 <Text size="xs" c="dimmed" fw={500}>
-                  مرکز رشد شریف
+                  مرکز آموزش‌های آزاد دانشگاه صنعتی شریف
                 </Text>
               </div>
             </div>
