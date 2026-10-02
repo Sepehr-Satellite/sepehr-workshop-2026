@@ -223,6 +223,18 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                   </SimpleGrid>
                 </Paper>
               )}
+              {workshop.introduction && (
+                <Paper
+                  p="md"
+                  radius="md"
+                  mt="md"
+                  style={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0' }}
+                >
+                  <Text size="sm" style={{ color: '#334155', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
+                    {workshop.introduction}
+                  </Text>
+                </Paper>
+              )}
             </div>
 
             {/* ستون چپ (کارت مشخصات سریع در دسکتاپ) */}
@@ -249,7 +261,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     <Image
                       src={workshop.heroImage}
                       alt={workshop.title}
-                      height={170}
+                      fit="contain"
                       fallbackSrc="https://placehold.co/600x400/f1f5f9/475569?text=Sepehr+Workshop"
                       style={{ objectFit: 'cover', width: '100%' }}
                     />
@@ -391,6 +403,12 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                         </Badge>
                       )}
                     </Group>
+
+                    {block.description && (
+                      <Text size="sm" style={{ whiteSpace: 'pre-line', lineHeight: 1.8 }} mb="sm">
+                        {block.description}
+                      </Text>
+                    )}
 
                     <Stack gap="xs">
                       {block.content.map((item, cIndex) => (

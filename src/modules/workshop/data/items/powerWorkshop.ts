@@ -8,7 +8,7 @@ export const powerWorkshop: Workshop =
     title: "دوره مقدماتی Electric Power System",
     subtitle: "بررسی مباحث پرکاربرد در طراحی و پیاده‌سازی سیستم‌های توان در کیوب‌ست",
     description: "آموزش جامع زیرسیستم تولید و مدیریت توان در ماهواره‌های کیوب‌ست (EPS)؛ شامل بررسی سلول‌های خورشیدی، منحنی‌های مشخصه، تکنیک‌های MPPT، مدیریت باتری (BMS)، سیستم‌های پایش حرارتی و مبدل‌های توان برای تأمین سطوح ولتاژ مختلف.",
-    level: "پیشرفته",
+    level: "مقدماتی",
     hours: "۶ ساعت",
     bgImage: getAssetPath("/images/workshops/avionics-power-bg.png"),
     heroImage: getAssetPath("/images/workshops/avionics-power-hero.png"),
@@ -29,15 +29,15 @@ export const powerWorkshop: Workshop =
     statusLabel: "ثبت‌نام فعال",
     prerequisites: [
       "آشنایی با مدارات الکتریکی (قانون اهم، توان)",
-      "توانایی کار با مولتی‌متر و تجهیزات اندازه‌گیری"
     ],
     requirements: [
-      "برد بورد و سیم جامپر",
-      "مولتی‌متر دیجیتال",
-      "سنسور دما NTC",
-      "مبدل‌های ولتاژ (Buck/Boost)",
-      "سلول خورشیدی نمونه",
-      "پتانسیومتر"
+      "تمام تجهیزات توسط برگزارکننده فراهم می‌شود."
+      // "برد بورد و سیم جامپر",
+      // "مولتی‌متر دیجیتال",
+      // "سنسور دما NTC",
+      // "مبدل‌های ولتاژ (Buck/Boost)",
+      // "سلول خورشیدی نمونه",
+      // "پتانسیومتر"
     ],
     syllabus: [
       {
@@ -69,7 +69,7 @@ export const powerWorkshop: Workshop =
           {
             subtitle: "تکنولوژی‌های استخراج توان",
             bullets: [
-              "تحلیل رفتار سوالر سل در جریان و ولتاژهای مختلف",
+              "تحلیل رفتار سلول خورشیدی در جریان و ولتاژهای مختلف",
               "معرفی مفهوم MPPT (Maximum Power Point Tracking) و اهمیت آن در فضا"
             ]
           },

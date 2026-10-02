@@ -6,6 +6,7 @@ export interface SyllabusContent {
 export interface SyllabusBlock {
   title: string;
   duration: string;
+  description?: string;
   content: SyllabusContent[];
 }
 
@@ -15,6 +16,7 @@ export interface Workshop {
   title: string;
   subtitle: string;
   description: string;
+  introduction?: string;
   level: string;
   hours: string;
   bgImage: string;
