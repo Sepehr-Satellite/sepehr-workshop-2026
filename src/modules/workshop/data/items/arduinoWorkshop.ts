@@ -16,7 +16,7 @@ export const arduinoWorkshop: Workshop =
     color: "#27969C",
     highlights: ["آشنایی با ساختار برنامه‌نویسی و مفاهیم اولیه","آشنایی با Command و Telemetry", "Scheduler", "ابزارهای ارتباطی GPIO, I2C, UART", "خوانش سنسور"],
     date: "23 مهر 1405",
-    price: "3,000,000 تومان",
+    price: "1,800,000 تومان",
     time: "ساعت دقیق اعلام می‌شود",
     location: "دانشکده هوافضا",
     speaker: "رهام کاوه‌ای",

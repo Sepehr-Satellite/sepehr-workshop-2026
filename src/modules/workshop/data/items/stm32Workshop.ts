@@ -16,7 +16,7 @@ export const stm32Workshop: Workshop =
     color: "#5C8BA1",
     highlights: ["برنامه‌نویسی پیشرفته STM32 با توابع HAL", "راه‌اندازی پروتکل CAN و سنسورها", "مفاهیم ADCS و کار با DMA"],
     date: "24 مهر 1405",
-    price: "5,000,000 تومان",
+    price: "3,800,000 تومان",
     time: "9:00 الی 18:00",
     location: "دانشکده هوافضا",
     speaker: "رهام کاوه‌ای",

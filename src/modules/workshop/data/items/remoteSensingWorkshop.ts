@@ -22,7 +22,7 @@ export const remoteSensingWorkshop: Workshop =
       "تحلیل تصاویر ماهواره‌ای واقعی با ابزارهای متلب"
     ],
     date: "15 آبان 1405",
-    price: "4,000,000 تومان",
+    price: "2,850,000 تومان",
     time: "9:00 الی 19:00",
     location: "دانشکده هوافضا",
     speaker: "مهندس علی مرادی",

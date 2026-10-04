@@ -22,7 +22,7 @@ export const additiveManufacturingWorkshop: Workshop =
       "چاپ عملی لوگوی تیم سپهر و مدل اختصاصی هر گروه"
     ],
     date: "7 آبان 1405",
-    price: "3,000,000 تومان",
+    price: "2,000,000 تومان",
     time: "9:00 الی 16:00",
     location: "دانشکده هوافضا",
     speaker: "مهندس سید امیر پویان‌نیا",

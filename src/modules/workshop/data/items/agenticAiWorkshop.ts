@@ -24,7 +24,7 @@ export const agenticAiWorkshop: Workshop =
       "-پروژه عملی: توسعه ایستگاه زمینی ماهواره و اتصال آن به AI Agent"
 ],
     date: "14 آبان 1405",
-    price: "4,000,000 تومان",
+    price: "2,500,000 تومان",
     time: "ساعت دقیق اعلام می‌شود",
     location: "دانشکده هوافضا",
     speaker: "فرزانه مجد",

@@ -23,7 +23,7 @@ export const ttncWorkshop: Workshop =
       "پیاده‌سازی یکپارچه لینک TT&C با SDR"
     ],
     date: "21 و 22 آبان 1405",
-    price: "6,000,000 تومان",
+    price: "5,000,000 تومان",
     time: "ساعت دقیق اعلام می‌شود",
     location: "دانشکده هوافضا",
     speaker: "مهندس سینا صفی‌زاده",
