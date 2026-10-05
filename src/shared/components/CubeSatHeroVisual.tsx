@@ -103,7 +103,7 @@ export default function CubeSatHeroVisual() {
       </Stack>
 
       {/* باکس گواهینامه در انتهای کارت */}
-      <Paper p="sm" radius="md" bg="indigo.0" style={{ border: '1px solid var(--mantine-color-indigo-2)' }}>
+      {/* <Paper p="sm" radius="md" bg="indigo.0" style={{ border: '1px solid var(--mantine-color-indigo-2)' }}>
         <Group justify="space-between">
           <Group gap="xs">
             <ThemeIcon size={32} radius="md" color="indigo" variant="filled">
@@ -116,7 +116,7 @@ export default function CubeSatHeroVisual() {
           </Group>
           <Badge color="indigo" variant="white" size="md">معتبر</Badge>
         </Group>
-      </Paper>
+      </Paper> */}
     </Paper>
   );
 }
