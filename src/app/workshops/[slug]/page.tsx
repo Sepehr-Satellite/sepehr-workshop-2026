@@ -106,6 +106,21 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
             align-items: start;
           }
         }
+
+        .workshop-detail-image-frame {
+          height: clamp(240px, 35vw, 380px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #ffffff;
+        }
+
+        .workshop-detail-image-frame img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
       `}</style>
 
       {/* هدر ناوبری / دکمه بازگشت */}
@@ -254,6 +269,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
               >
                 {workshop.heroImage && (
                   <Box
+                    className="workshop-detail-image-frame"
                     mb="md"
                     style={{
                       borderRadius: '8px',
@@ -268,7 +284,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                       alt={workshop.title}
                       fit="contain"
                       fallbackSrc="https://placehold.co/600x400/f1f5f9/475569?text=Sepehr+Workshop"
-                      style={{ objectFit: 'cover', width: '100%' }}
+                      style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                     />
                   </Box>
                 )}
