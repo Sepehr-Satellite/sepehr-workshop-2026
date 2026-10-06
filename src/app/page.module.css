@@ -198,7 +198,51 @@ a.secondary {
 }
 
 .workshopCardButton {
+  width: 100%;
   min-height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  border-radius: var(--mantine-radius-md);
+
+  background-color: var(--mantine-color-indigo-0);
+  color: var(--mantine-color-indigo-7);
+
+  font-family: inherit;
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+  line-height: 1.55;
+
+  text-decoration: none;
+
+  border: 0;
+
+  cursor: pointer;
+
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 100ms ease;
+}
+
+.workshopCardButton:hover {
+  background-color: var(--mantine-color-indigo-1);
+  color: var(--mantine-color-indigo-8);
+  text-decoration: none;
+}
+
+.workshopCardButton:active {
+  transform: translateY(1px);
+}
+
+.workshopCardButton:focus-visible {
+  outline: 2px solid var(--mantine-color-indigo-5);
+  outline-offset: 2px;
 }
 
 @media (max-width: 47.99em) {

@@ -1,6 +1,4 @@
 // src/app/page.tsx
-'use client';
-
 import {
   Box,
 } from '@mantine/core';
