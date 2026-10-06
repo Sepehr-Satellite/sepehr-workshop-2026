@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAssetPath } from '@/utils/prefix';
-import { TELEGRAM_CHANNEL_URL } from '@/shared/constants/socialLinks';
+import TelegramLink from '@/shared/components/TelegramLink';
 import {
   Container,
   Button,
@@ -13,14 +13,11 @@ import {
   Stack,
   Box,
   Divider,
-  ActionIcon,
   Title,
 } from '@mantine/core';
 import {
   IconBrandTelegram,
   IconMapPin,
-  IconMail,
-  IconPhone,
 } from '@tabler/icons-react';
 
 const COLORS = {
@@ -31,10 +28,6 @@ const COLORS = {
   accent: '#60a5fa',
 };
 
-const socialLinks = [
-  { icon: IconBrandTelegram, href: TELEGRAM_CHANNEL_URL, label: 'کانال تلگرام' },
-];
-
 const quickLinks = [
   { link: '/', label: 'صفحه اصلی' },
   { link: '/#workshops', label: 'کارگاه‌های تخصصی' },
@@ -44,8 +37,7 @@ const quickLinks = [
 
 const contactItems = [
   { icon: IconMapPin, text: 'تهران، دانشگاه صنعتی شریف، دانشکده مهندسی هوافضا', dir: 'rtl' },
-  { icon: IconMail, text: 'info@sepehr-space.ir', dir: 'ltr' },
-  { icon: IconPhone, text: '۰۲۱-۶۶۱۶۴۰۰۰', dir: 'rtl' },
+  { icon: IconBrandTelegram, text:"@SepehrWorkshops", dir: 'ltr' },
 ] as const;
 
 export default function Footer() {
@@ -99,26 +91,17 @@ export default function Footer() {
               </Text>
 
               <Group gap="sm" mt="xs">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <ActionIcon
-                    key={label}
-                    size="lg"
-                    radius="md"
-                    variant="subtle"
-                    color="white"
-                    aria-label={label}
-                    component="a"
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
-                    }}
-                  >
-                    <Icon size={20} stroke={1.8} />
-                  </ActionIcon>
-                ))}
+                <TelegramLink
+                  iconOnly
+                  size="lg"
+                  radius="md"
+                  variant="subtle"
+                  color="white"
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                  }}
+                />
               </Group>
             </Stack>
           </Grid.Col>
@@ -156,7 +139,7 @@ export default function Footer() {
           <Grid.Col span={{ base: 12, sm: 6, md: 4 }}>
             <Stack gap="sm">
               <Text fw={700} c="white" size="md" mb={4}>
-                ارتباط و دبیرخانه
+                ارتباط
               </Text>
               {contactItems.map(({ icon: Icon, text, dir }) => (
                 <Group key={text} gap="xs" wrap="nowrap" align="flex-start">

@@ -34,7 +34,7 @@ import {
 } from '@tabler/icons-react';
 
 import { WORKSHOPS, Workshop } from '@/modules/workshop/data/workshops';
-import { TELEGRAM_CHANNEL_URL } from '@/shared/constants/socialLinks';
+import TelegramLink from '@/shared/components/TelegramLink';
 import { getResponsiveImage } from '@/utils/optimizedImages';
 
 // اسلاگ‌های ثابت برای تضمین Static Export
@@ -503,17 +503,10 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                   برای اطلاع از تازه‌ترین اخبار، زمان‌بندی و اطلاعیه‌های مربوط به کارگاه «{workshop.title}»
                   و سایر کارگاه‌های سپهر، عضو کانال تلگرام شوید.
                 </Text>
-                <Button
-                  component="a"
-                  href={TELEGRAM_CHANNEL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <TelegramLink
                   fullWidth
                   color="blue"
-                  leftSection={<IconBrandTelegram size={18} />}
-                >
-                  کانال تلگرام
-                </Button>
+                />
               </Card>
 
               {/* کارت پیش‌نیازها */}
