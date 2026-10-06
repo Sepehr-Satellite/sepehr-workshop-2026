@@ -8,7 +8,7 @@ export const stm32Workshop: Workshop =
     title: "دوره آموزش برنامه‌نویسی امبدد با محوریت کامپیوتر پرواز (C&DH)",
     subtitle: "آموزشی مفاهیم اولیه برنامه‌نویسی ‌سیستم‌های نهفته همراه با بررسی وظایف زیرسیستم C&DH در ماهواره",
     description: "",
-    level: "پیشرفته",
+    level: "مقدماتی تا پیشرفته",
     hours: "۸ ساعت",
     bgImage: getAssetPath("/images/workshops/cdh-stm32-bg2.png"),
     heroImage: getAssetPath("/images/workshops/cdh-stm32-hero.jpg"),

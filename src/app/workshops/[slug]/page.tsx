@@ -334,10 +334,10 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     style={{ backgroundColor: '#eff6ff', borderRadius: '8px' }}
                   >
                     <Text size="xs" fw={600} c="blue.8">
-                      ۱۰٪ تخفیف مخصوص دانشجویان
+                      15% تخفیف مخصوص دانشجویان
                     </Text>
                     <Text size="xs" fw={600} c="blue.8" mt={4}>
-                      ۲۰٪ تخفیف مخصوص دانشجویان دانشگاه صنعتی شریف
+                      30% تخفیف مخصوص دانشجویان دانشگاه صنعتی شریف
                     </Text>
                   </Box>
 

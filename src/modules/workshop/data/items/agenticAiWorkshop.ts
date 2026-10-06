@@ -25,7 +25,7 @@ export const agenticAiWorkshop: Workshop =
 ],
     date: "14 آبان 1405",
     price: "2,500,000 تومان",
-    time: "ساعت دقیق اعلام می‌شود",
+    time: "9:00 الی 16:00",
     location: "دانشکده هوافضا",
     speaker: "فرزانه مجد",
     status: "filling",

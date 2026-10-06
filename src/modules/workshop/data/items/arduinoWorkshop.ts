@@ -23,7 +23,7 @@ export const arduinoWorkshop: Workshop =
     ],
     date: "23 مهر 1405",
     price: "1,800,000 تومان",
-    time: "ساعت دقیق اعلام می‌شود",
+    time: "9:00 الی 16:00",
     location: "دانشکده هوافضا",
     speaker: "رهام کاوه‌ای",
     status: "open",

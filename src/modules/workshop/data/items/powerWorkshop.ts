@@ -22,7 +22,7 @@ export const powerWorkshop: Workshop =
     ],
     date: "1 آبان 1405",
     price: "3,000,000 تومان",
-    time: "ساعت دقیق اعلام می‌شود",
+    time: "9:00 الی 16:00",
     location: "دانشکده هوافضا",
     speaker: "مهندس محمد مهدوی‌پاک",
     status: "open",

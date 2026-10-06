@@ -8,7 +8,7 @@ export const adcsWorkshop: Workshop =
     title: "مقدمه‌ای بر تعیین و کنترل وضعیت (ADCS)",
     subtitle: "تئوری، شبیه‌سازی و پیاده‌سازی مفاهیم تعیین و کنترل وضعیت و مد‌های عملیاتی ماهواره",
     description: "آشنایی مفهومی و پیاده‌سازی ADCS؛ از مبانی دینامیک وضعیت و معماری هدایت، ناوبری و کنترل (GNC)، بررسی و کالیبراسیون سنسورها و تخمین وضعیت، تا کنترل حلقه‌بسته با چرخ عکس‌العملی و پیاده‌سازی ماشین حالت برای مدهای عملیاتی ماهواره.",
-    level: "پیشرفته",
+    level: "مقدماتی تا پیشرفته",
     hours: "۸ ساعت",
     bgImage: getAssetPath("/images/workshops/adcs-bg.png"),
     heroImage: getAssetPath("/images/workshops/adcs-hero.png"),
