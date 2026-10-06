@@ -30,9 +30,11 @@ import {
   IconChevronLeft,
   IconBook,
   IconPointFilled,
+  IconBrandTelegram,
 } from '@tabler/icons-react';
 
 import { WORKSHOPS, Workshop } from '@/modules/workshop/data/workshops';
+import { TELEGRAM_CHANNEL_URL } from '@/shared/constants/socialLinks';
 
 // اسلاگ‌های ثابت برای تضمین Static Export
 const STATIC_SLUGS = [
@@ -465,6 +467,36 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
           {/* ستون پیش‌نیازها و ملزومات */}
           <div style={{ width: '100%' }}>
             <Stack gap="md" style={{ width: '100%' }}>
+              <Card
+                component="section"
+                aria-labelledby="workshop-telegram-title"
+                radius="md"
+                p="md"
+                style={{ backgroundColor: '#eff6ff', border: '1px solid #bfdbfe' }}
+              >
+                <Group gap="xs" mb="sm" wrap="nowrap">
+                  <IconBrandTelegram size={22} color="#2563eb" style={{ flexShrink: 0 }} />
+                  <Title id="workshop-telegram-title" order={2} size="h4" c="blue.8">
+                    کانال اطلاع‌رسانی کارگاه‌ها
+                  </Title>
+                </Group>
+                <Text size="sm" c="dark.6" lh={1.8} mb="md">
+                  برای اطلاع از تازه‌ترین اخبار، زمان‌بندی و اطلاعیه‌های مربوط به کارگاه «{workshop.title}»
+                  و سایر کارگاه‌های سپهر، عضو کانال تلگرام شوید.
+                </Text>
+                <Button
+                  component="a"
+                  href={TELEGRAM_CHANNEL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fullWidth
+                  color="blue"
+                  leftSection={<IconBrandTelegram size={18} />}
+                >
+                  کانال تلگرام
+                </Button>
+              </Card>
+
               {/* کارت پیش‌نیازها */}
               <Card
                 radius="md"

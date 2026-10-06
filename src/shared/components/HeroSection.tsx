@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { getAssetPath } from '@/utils/prefix';
+import { TELEGRAM_CHANNEL_URL } from '@/shared/constants/socialLinks';
 import Image from 'next/image';
 import {
   Container,
@@ -12,7 +13,7 @@ import {
   Divider,
   Box,
 } from '@mantine/core';
-import { IconChevronLeft } from '@tabler/icons-react';
+import { IconBrandTelegram, IconChevronLeft } from '@tabler/icons-react';
 
 export default function HeroSection() {
   return (
@@ -49,6 +50,7 @@ export default function HeroSection() {
 
         .hero-cta-group {
           display: flex;
+          flex-wrap: wrap;
           gap: 1rem;
         }
 
@@ -249,6 +251,21 @@ export default function HeroSection() {
                 }}
               >
                 برنامه زمان‌بندی
+              </Button>
+
+              <Button
+                component="a"
+                href={TELEGRAM_CHANNEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-btn"
+                variant="light"
+                color="blue"
+                size="lg"
+                leftSection={<IconBrandTelegram size={20} />}
+                style={{ fontWeight: 600, paddingInline: '24px' }}
+              >
+                کانال تلگرام
               </Button>
             </div>
 

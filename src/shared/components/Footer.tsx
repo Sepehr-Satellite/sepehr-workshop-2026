@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAssetPath } from '@/utils/prefix';
+import { TELEGRAM_CHANNEL_URL } from '@/shared/constants/socialLinks';
 import {
   Container,
   Button,
@@ -31,7 +32,7 @@ const COLORS = {
 };
 
 const socialLinks = [
-  { icon: IconBrandTelegram, href: 'https://t.me', label: 'تلگرام' },
+  { icon: IconBrandTelegram, href: TELEGRAM_CHANNEL_URL, label: 'کانال تلگرام' },
 ];
 
 const quickLinks = [
