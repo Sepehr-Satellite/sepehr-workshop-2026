@@ -35,6 +35,7 @@ import {
 
 import { WORKSHOPS, Workshop } from '@/modules/workshop/data/workshops';
 import { TELEGRAM_CHANNEL_URL } from '@/shared/constants/socialLinks';
+import { getResponsiveImage } from '@/utils/optimizedImages';
 
 // اسلاگ‌های ثابت برای تضمین Static Export
 const STATIC_SLUGS = [
@@ -261,7 +262,9 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     }}
                   >
                     <Image
-                      src={workshop.heroImage}
+                      {...getResponsiveImage(workshop.heroImage)}
+                      sizes="(max-width: 899px) calc(100vw - 64px), 326px"
+                      decoding="async"
                       alt={workshop.title}
                       fit="contain"
                       fallbackSrc="https://placehold.co/600x400/f1f5f9/475569?text=Sepehr+Workshop"

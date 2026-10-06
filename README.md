@@ -22,6 +22,22 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Learn More
 
+## Image assets
+
+After adding or replacing PNG/JPEG files under `public/images`, run:
+
+```bash
+npm run images:optimize
+```
+
+This preserves originals and generates resized WebP files in `public/images/optimized`
+plus `src/shared/data/optimizedImages.json`. Keep both generated outputs with the site.
+Cards, the gallery, and workshop pages use responsive image sizes; the scrolling
+showcase loads images and backgrounds only as nearby slides approach. This works
+with the static export and its production URL prefix without an image server.
+
+## Learn More
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.

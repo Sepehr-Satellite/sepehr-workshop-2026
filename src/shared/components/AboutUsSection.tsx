@@ -18,7 +18,7 @@ import {
   IconSatellite,
 } from '@tabler/icons-react';
 
-import { getAssetPath } from '@/utils/prefix';
+import { getResponsiveImage } from '@/utils/optimizedImages';
 
 const WORKSHOP_IMAGES = [
   '/images/gallery/ws_gallery_1.jpg',
@@ -109,7 +109,11 @@ export default function AboutUsSection() {
             {WORKSHOP_IMAGES.map((imgSrc, idx) => (
               <div key={`g1-${idx}`} className="marquee-card">
                 <Image
-                  src={getAssetPath(imgSrc)}
+                  {...getResponsiveImage(imgSrc, 1200)}
+                  sizes="(max-width: 768px) 320px, 580px"
+                  loading="lazy"
+                  decoding="async"
+                  alt=""
                   fit="contain"
                   style={{
                     width: '100%',
@@ -127,7 +131,10 @@ export default function AboutUsSection() {
             {WORKSHOP_IMAGES.map((imgSrc, idx) => (
               <div key={`g2-${idx}`} className="marquee-card">
                 <img
-                  src={getAssetPath(imgSrc)}
+                  {...getResponsiveImage(imgSrc, 1200)}
+                  sizes="(max-width: 768px) 320px, 580px"
+                  loading="lazy"
+                  decoding="async"
                   alt={`کارگاه ${idx + 1}`}
                   style={{
                     width: '100%',

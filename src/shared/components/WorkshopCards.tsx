@@ -15,6 +15,7 @@ import { IconChevronLeft, IconClock } from '@tabler/icons-react';
 import Link from 'next/link';
 
 import { WORKSHOPS } from '@/modules/workshop/data/workshops';
+import { getResponsiveImage } from '@/utils/optimizedImages';
 
 import styles from '../../app/page.module.css';
 
@@ -66,7 +67,10 @@ export default function WorkshopCards() {
                   className={styles.workshopImageFrame}
                 >
                   <Image
-                    src={workshop.heroImage}
+                    {...getResponsiveImage(workshop.heroImage, 800)}
+                    sizes="(max-width: 767px) 50vw, (max-width: 991px) 50vw, 400px"
+                    loading="lazy"
+                    decoding="async"
                     fit="contain"
                     alt={workshop.title}
                     className={styles.workshopImage}

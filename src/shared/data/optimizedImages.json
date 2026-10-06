@@ -1,0 +1,342 @@
+{
+  "/images/gallery/ws_gallery_1.jpg": [
+    {
+      "src": "/images/optimized/gallery/ws_gallery_1-480.webp",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_1-800.webp",
+      "width": 800,
+      "height": 450
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_1-1200.webp",
+      "width": 1200,
+      "height": 675
+    }
+  ],
+  "/images/gallery/ws_gallery_2.jpg": [
+    {
+      "src": "/images/optimized/gallery/ws_gallery_2-480.webp",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_2-800.webp",
+      "width": 800,
+      "height": 451
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_2-1200.webp",
+      "width": 1200,
+      "height": 676
+    }
+  ],
+  "/images/gallery/ws_gallery_3.jpg": [
+    {
+      "src": "/images/optimized/gallery/ws_gallery_3-480.webp",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_3-800.webp",
+      "width": 800,
+      "height": 451
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_3-1200.webp",
+      "width": 1200,
+      "height": 676
+    }
+  ],
+  "/images/gallery/ws_gallery_4.jpg": [
+    {
+      "src": "/images/optimized/gallery/ws_gallery_4-480.webp",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_4-800.webp",
+      "width": 800,
+      "height": 451
+    },
+    {
+      "src": "/images/optimized/gallery/ws_gallery_4-1200.webp",
+      "width": 1200,
+      "height": 676
+    }
+  ],
+  "/images/hero-cubesat.png": [
+    {
+      "src": "/images/optimized/hero-cubesat-480.webp",
+      "width": 480,
+      "height": 320
+    },
+    {
+      "src": "/images/optimized/hero-cubesat-800.webp",
+      "width": 800,
+      "height": 533
+    },
+    {
+      "src": "/images/optimized/hero-cubesat-1200.webp",
+      "width": 1200,
+      "height": 800
+    }
+  ],
+  "/images/sharif-logo.jpg": [
+    {
+      "src": "/images/optimized/sharif-logo-447.webp",
+      "width": 447,
+      "height": 447
+    }
+  ],
+  "/images/workshops/adcs-bg.png": [
+    {
+      "src": "/images/optimized/workshops/adcs-bg-800.webp",
+      "width": 800,
+      "height": 449
+    },
+    {
+      "src": "/images/optimized/workshops/adcs-bg-1600.webp",
+      "width": 1600,
+      "height": 898
+    }
+  ],
+  "/images/workshops/adcs-hero.png": [
+    {
+      "src": "/images/optimized/workshops/adcs-hero-480.webp",
+      "width": 480,
+      "height": 444
+    },
+    {
+      "src": "/images/optimized/workshops/adcs-hero-800.webp",
+      "width": 800,
+      "height": 740
+    },
+    {
+      "src": "/images/optimized/workshops/adcs-hero-988.webp",
+      "width": 988,
+      "height": 914
+    }
+  ],
+  "/images/workshops/additive-manufacturing-bg.jpg": [
+    {
+      "src": "/images/optimized/workshops/additive-manufacturing-bg-800.webp",
+      "width": 800,
+      "height": 453
+    },
+    {
+      "src": "/images/optimized/workshops/additive-manufacturing-bg-1600.webp",
+      "width": 1600,
+      "height": 905
+    }
+  ],
+  "/images/workshops/additive-manufacturing-hero.png": [
+    {
+      "src": "/images/optimized/workshops/additive-manufacturing-hero-480.webp",
+      "width": 480,
+      "height": 487
+    },
+    {
+      "src": "/images/optimized/workshops/additive-manufacturing-hero-759.webp",
+      "width": 759,
+      "height": 770
+    }
+  ],
+  "/images/workshops/ai-assist-bg.png": [
+    {
+      "src": "/images/optimized/workshops/ai-assist-bg-800.webp",
+      "width": 800,
+      "height": 534
+    },
+    {
+      "src": "/images/optimized/workshops/ai-assist-bg-1600.webp",
+      "width": 1600,
+      "height": 1067
+    }
+  ],
+  "/images/workshops/ai-assist-hero.png": [
+    {
+      "src": "/images/optimized/workshops/ai-assist-hero-409.webp",
+      "width": 409,
+      "height": 441
+    }
+  ],
+  "/images/workshops/avionics-altium-bg.png": [
+    {
+      "src": "/images/optimized/workshops/avionics-altium-bg-800.webp",
+      "width": 800,
+      "height": 533
+    },
+    {
+      "src": "/images/optimized/workshops/avionics-altium-bg-1536.webp",
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "/images/workshops/avionics-altium-hero.png": [
+    {
+      "src": "/images/optimized/workshops/avionics-altium-hero-480.webp",
+      "width": 480,
+      "height": 194
+    },
+    {
+      "src": "/images/optimized/workshops/avionics-altium-hero-800.webp",
+      "width": 800,
+      "height": 323
+    },
+    {
+      "src": "/images/optimized/workshops/avionics-altium-hero-1200.webp",
+      "width": 1200,
+      "height": 485
+    }
+  ],
+  "/images/workshops/avionics-power-bg.png": [
+    {
+      "src": "/images/optimized/workshops/avionics-power-bg-800.webp",
+      "width": 800,
+      "height": 446
+    },
+    {
+      "src": "/images/optimized/workshops/avionics-power-bg-1280.webp",
+      "width": 1280,
+      "height": 714
+    }
+  ],
+  "/images/workshops/avionics-power-hero.png": [
+    {
+      "src": "/images/optimized/workshops/avionics-power-hero-480.webp",
+      "width": 480,
+      "height": 447
+    },
+    {
+      "src": "/images/optimized/workshops/avionics-power-hero-800.webp",
+      "width": 800,
+      "height": 745
+    },
+    {
+      "src": "/images/optimized/workshops/avionics-power-hero-863.webp",
+      "width": 863,
+      "height": 804
+    }
+  ],
+  "/images/workshops/cdh-arduino-bg.png": [
+    {
+      "src": "/images/optimized/workshops/cdh-arduino-bg-800.webp",
+      "width": 800,
+      "height": 450
+    },
+    {
+      "src": "/images/optimized/workshops/cdh-arduino-bg-1200.webp",
+      "width": 1200,
+      "height": 675
+    }
+  ],
+  "/images/workshops/cdh-arduino-hero.png": [
+    {
+      "src": "/images/optimized/workshops/cdh-arduino-hero-480.webp",
+      "width": 480,
+      "height": 241
+    },
+    {
+      "src": "/images/optimized/workshops/cdh-arduino-hero-500.webp",
+      "width": 500,
+      "height": 251
+    }
+  ],
+  "/images/workshops/cdh-stm32-bg.png": [
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-bg-800.webp",
+      "width": 800,
+      "height": 426
+    },
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-bg-1600.webp",
+      "width": 1600,
+      "height": 851
+    }
+  ],
+  "/images/workshops/cdh-stm32-bg2.png": [
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-bg2-800.webp",
+      "width": 800,
+      "height": 533
+    },
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-bg2-1536.webp",
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "/images/workshops/cdh-stm32-hero.jpg": [
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-hero-480.webp",
+      "width": 480,
+      "height": 320
+    },
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-hero-800.webp",
+      "width": 800,
+      "height": 534
+    },
+    {
+      "src": "/images/optimized/workshops/cdh-stm32-hero-1024.webp",
+      "width": 1024,
+      "height": 683
+    }
+  ],
+  "/images/workshops/comm-bg.jpg": [
+    {
+      "src": "/images/optimized/workshops/comm-bg-800.webp",
+      "width": 800,
+      "height": 450
+    },
+    {
+      "src": "/images/optimized/workshops/comm-bg-1600.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "/images/workshops/comm-hero.png": [
+    {
+      "src": "/images/optimized/workshops/comm-hero-480.webp",
+      "width": 480,
+      "height": 371
+    },
+    {
+      "src": "/images/optimized/workshops/comm-hero-800.webp",
+      "width": 800,
+      "height": 618
+    }
+  ],
+  "/images/workshops/remote-sensing-bg.png": [
+    {
+      "src": "/images/optimized/workshops/remote-sensing-bg-800.webp",
+      "width": 800,
+      "height": 302
+    },
+    {
+      "src": "/images/optimized/workshops/remote-sensing-bg-1600.webp",
+      "width": 1600,
+      "height": 603
+    }
+  ],
+  "/images/workshops/remote-sensing-hero.png": [
+    {
+      "src": "/images/optimized/workshops/remote-sensing-hero-480.webp",
+      "width": 480,
+      "height": 332
+    },
+    {
+      "src": "/images/optimized/workshops/remote-sensing-hero-800.webp",
+      "width": 800,
+      "height": 553
+    },
+    {
+      "src": "/images/optimized/workshops/remote-sensing-hero-1200.webp",
+      "width": 1200,
+      "height": 830
+    }
+  ]
+}

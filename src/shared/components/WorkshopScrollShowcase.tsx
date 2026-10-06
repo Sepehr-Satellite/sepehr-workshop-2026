@@ -16,12 +16,14 @@ import {
 } from '@mantine/core';
 import { IconArrowLeft, IconCircleCheck, IconClock } from '@tabler/icons-react';
 import { WORKSHOPS } from '@/modules/workshop/data/workshops';
+import { getOptimizedBackground, getResponsiveImage } from '@/utils/optimizedImages';
 
 const HEADER_HEIGHT = 72;
 
 export default function WorkshopScrollShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [loadedSlides, setLoadedSlides] = useState<Set<string>>(() => new Set());
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -68,6 +70,46 @@ export default function WorkshopScrollShowcase() {
     });
 
     return () => observer.disconnect();
+  }, [isMobile]);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    // First wait for the whole showcase to approach the page viewport.
+    // Then load only nearby slides inside its desktop scroll container,
+    // or near the page viewport on mobile. Loaded slides stay available.
+    const slideObserver = new IntersectionObserver((entries) => {
+      const nearby = entries.filter((entry) => entry.isIntersecting);
+      if (!nearby.length) return;
+      setLoadedSlides((previous) => {
+        const next = new Set(previous);
+        nearby.forEach((entry) => {
+          const slug = entry.target.getAttribute('data-workshop-slide');
+          if (slug) next.add(slug);
+        });
+        return next.size === previous.size ? previous : next;
+      });
+      nearby.forEach((entry) => slideObserver.unobserve(entry.target));
+    }, {
+      root: isMobile ? null : scrollContainer,
+      rootMargin: isMobile ? '400px 0px' : '100% 0px',
+      threshold: 0,
+    });
+
+    const showcaseObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      slideRefs.current.forEach((slide) => {
+        if (slide) slideObserver.observe(slide);
+      });
+      showcaseObserver.disconnect();
+    }, { rootMargin: '400px 0px', threshold: 0 });
+
+    showcaseObserver.observe(scrollContainer);
+    return () => {
+      showcaseObserver.disconnect();
+      slideObserver.disconnect();
+    };
   }, [isMobile]);
 
   const scrollToSlide = (index: number) => {
@@ -150,6 +192,8 @@ export default function WorkshopScrollShowcase() {
       .toSorted((a,b) => a.id.localeCompare(b.id))
       .map((workshop, index) => {
         const isActive = activeIndex === index;
+        const shouldLoad = loadedSlides.has(workshop.slug);
+        const heroImage = getResponsiveImage(workshop.heroImage);
 
         return (
           <Box
@@ -179,7 +223,9 @@ export default function WorkshopScrollShowcase() {
                 position: 'absolute',
                 inset: 0,
                 zIndex: -3,
-                backgroundImage: `url(${workshop.bgImage})`,
+                backgroundImage: shouldLoad
+                  ? `url(${getOptimizedBackground(workshop.bgImage, isMobile)})`
+                  : 'none',
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 opacity: isActive ? 1 : 0.78,
@@ -228,22 +274,30 @@ export default function WorkshopScrollShowcase() {
                       style={{
                         width: '100%',
                         maxWidth: '460px',
+                        aspectRatio: heroImage.width && heroImage.height
+                          ? `${heroImage.width} / ${heroImage.height}`
+                          : '4 / 3',
+                        maxHeight: 'min(400px, 42vh)',
                         transform: isActive ? 'translateY(0) scale(1)' : 'translateY(14px) scale(0.98)',
                         opacity: isActive ? 1 : 0.42,
                         transition:
                           'opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1)',
                       }}
                     >
-                      <Image
-                        src={workshop.heroImage}
+                      {shouldLoad && <Image
+                        {...heroImage}
+                        sizes="(max-width: 767px) calc(100vw - 64px), 460px"
+                        loading="lazy"
+                        decoding="async"
                         alt={workshop.title}
                         fallbackSrc="https://placehold.co/600x450/1e293b/fff?text=CubeSat+Hardware"
                         style={{
                           maxHeight: 'min(400px, 42vh)',
+                          height: '100%',
                           objectFit: 'contain',
                           filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.7))',
                         }}
-                      />
+                      />}
                     </Box>
                   </Box>
                 </Grid.Col>
