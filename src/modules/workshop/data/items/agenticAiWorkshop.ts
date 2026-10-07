@@ -27,7 +27,7 @@ export const agenticAiWorkshop: Workshop =
     price: "2,500,000 تومان",
     time: "9:00 الی 16:00",
     location: "دانشکده هوافضا",
-    speaker: "فرزانه مجد",
+    speaker: "مهندس فرزانه مجد",
     status: "filling",
     statusLabel: "ظرفیت محدود",
     prerequisites: [

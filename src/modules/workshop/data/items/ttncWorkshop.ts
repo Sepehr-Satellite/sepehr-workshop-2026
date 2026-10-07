@@ -5,7 +5,7 @@ export const ttncWorkshop: Workshop =
  {
     id: "W-09",
     slug: "ttnc",
-    title: "کارگاه عملی طراحی و پیاده‌سازی لینک TT&C با MATLAB و ADALM-Pluto",
+    title: "کارگاه عملی طراحی و پیاده‌سازی لینک TT&C با MATLAB و ADALM-Pluto (SDR)",
     subtitle: "",
     description: "مخاطبان: دانشجویان مهندسی برق، مخابرات، هوافضا و علاقه‌مندان به مخابرات ماهواره‌ای",
     level: "پیشرفته",
