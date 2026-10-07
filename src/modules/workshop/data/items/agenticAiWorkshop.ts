@@ -3,7 +3,7 @@ import { Workshop } from "../../types"
 
 export const agenticAiWorkshop: Workshop =
  {
-    id: "W-08",
+    id: "W-07",
     slug: "agentic-ai-ground-station",
     title: "آشنایی با عامل‌های هوش مصنوعی و توسعه هوشمند ایستگاه زمینی ماهواره",
     subtitle: "از معماری Agentها و NLP تا پایش و تحلیل خودکار تله‌متری فضایی",

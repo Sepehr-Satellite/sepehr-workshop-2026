@@ -3,7 +3,7 @@ import { Workshop } from "../../types"
 
 export const remoteSensingWorkshop: Workshop =
  {
-    id: "W-07",
+    id: "W-08",
     slug: "remote-sensing-control",
     title: "مقدمه‌ای بر سنجش از دور و محموله‌های تصویربرداری فضایی",
     subtitle: "از حسگر تا استخراج داده‌های سطحی و پردازش تصاویر ماهواره‌ای",
