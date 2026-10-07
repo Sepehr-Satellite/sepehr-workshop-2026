@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAssetPath } from '@/utils/prefix';
-import TelegramLink from '@/shared/components/TelegramLink';
+// import TelegramLink from '@/shared/components/TelegramLink';
 import {
   Container,
   Button,
@@ -16,7 +16,7 @@ import {
   Title,
 } from '@mantine/core';
 import {
-  IconBrandTelegram,
+  // IconBrandTelegram,
   IconMapPin,
 } from '@tabler/icons-react';
 
@@ -37,7 +37,7 @@ const quickLinks = [
 
 const contactItems = [
   { icon: IconMapPin, text: 'تهران، دانشگاه صنعتی شریف، دانشکده مهندسی هوافضا', dir: 'rtl' },
-  { icon: IconBrandTelegram, text:"@SepehrWorkshops", dir: 'ltr' },
+  // { icon: IconBrandTelegram, text:"@SepehrWorkshops", dir: 'ltr' },
 ] as const;
 
 export default function Footer() {
@@ -90,7 +90,7 @@ export default function Footer() {
                 گروه فضایی سپهر بستری برای تجمیع دانش طراحی ماهواره، مخابرات فضایی و سامانه‌های اویونیک است. تمرکز ما بر یادگیری عمیق از طریق پروژه‌های عملی و آزمایشگاهی است.
               </Text>
 
-              <Group gap="sm" mt="xs">
+              {/* <Group gap="sm" mt="xs">
                 <TelegramLink
                   iconOnly
                   size="lg"
@@ -102,7 +102,7 @@ export default function Footer() {
                     border: '1px solid rgba(255, 255, 255, 0.15)',
                   }}
                 />
-              </Group>
+              </Group> */}
             </Stack>
           </Grid.Col>
 

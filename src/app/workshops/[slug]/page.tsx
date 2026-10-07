@@ -30,11 +30,11 @@ import {
   IconChevronLeft,
   IconBook,
   IconPointFilled,
-  IconBrandTelegram,
+  // IconBrandTelegram,
 } from '@tabler/icons-react';
 
 import { WORKSHOPS, Workshop } from '@/modules/workshop/data/workshops';
-import TelegramLink from '@/shared/components/TelegramLink';
+// import TelegramLink from '@/shared/components/TelegramLink';
 import { getResponsiveImage } from '@/utils/optimizedImages';
 
 // اسلاگ‌های ثابت برای تضمین Static Export
@@ -486,7 +486,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
           {/* ستون پیش‌نیازها و ملزومات */}
           <div style={{ width: '100%' }}>
             <Stack gap="md" style={{ width: '100%' }}>
-              <Card
+              {/* <Card
                 component="section"
                 aria-labelledby="workshop-telegram-title"
                 radius="md"
@@ -507,7 +507,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                   fullWidth
                   color="blue"
                 />
-              </Card>
+              </Card> */}
 
               {/* کارت پیش‌نیازها */}
               <Card

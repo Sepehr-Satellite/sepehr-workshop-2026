@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { getAssetPath } from '@/utils/prefix';
-import TelegramLink from '@/shared/components/TelegramLink';
+// import TelegramLink from '@/shared/components/TelegramLink';
 import Image from 'next/image';
 import {
   Container,
@@ -253,13 +253,13 @@ export default function HeroSection() {
                 برنامه زمان‌بندی
               </Button>
 
-              <TelegramLink
+              {/* <TelegramLink
                 className="hero-cta-btn"
                 variant="light"
                 color="blue"
                 size="lg"
                 style={{ fontWeight: 600, paddingInline: '24px' }}
-              />
+              /> */}
             </div>
 
             {/* نوار آمار سریع */}
