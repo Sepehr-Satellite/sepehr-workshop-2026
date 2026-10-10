@@ -34,6 +34,11 @@ import {
 } from '@tabler/icons-react';
 
 import { WORKSHOPS, Workshop } from '@/modules/workshop/data/workshops';
+import WorkshopRegistration from '@/modules/workshop/components/WorkshopRegistration';
+import {
+  TELEGRAM_REGISTRATION_ADMIN_URL,
+  BALE_REGISTRATION_ADMIN_URL,
+} from '@/shared/constants/socialLinks';
 // import TelegramLink from '@/shared/components/TelegramLink';
 import { getResponsiveImage } from '@/utils/optimizedImages';
 
@@ -362,20 +367,15 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     </Text>
                   </Box>
 
-                  {workshop.registrationUrl && workshop.status !== 'completed' ? (
-                    <Button
-                      component="a"
-                      href={workshop.registrationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      fullWidth
-                      color="blue"
-                    >
-                      ثبت‌نام دوره
-                    </Button>
+                  {workshop.status !== 'completed' ? (
+                    <WorkshopRegistration
+                      workshopTitle={workshop.title}
+                      telegramUrl={TELEGRAM_REGISTRATION_ADMIN_URL}
+                      baleUrl={BALE_REGISTRATION_ADMIN_URL}
+                    />
                   ) : (
                     <Button fullWidth disabled>
-                      {workshop.status === 'completed' ? 'ثبت‌نام پایان یافته' : 'لینک ثبت‌نام به‌زودی اعلام می‌شود'}
+                      ثبت‌نام پایان یافته
                     </Button>
                   )}
                 </Stack>
